@@ -100,9 +100,13 @@ function dropDown(data){
     
 }
 
+
+
 window.document.addEventListener('DOMContentLoaded', async function(){
     let baseCaseLocation = "ANG MO KIO";
     let data = await loadData();
+    let testData = await loadData2();
+    console.log(testData);
     let resData = transformData(data);
     console.log(resData);
     dropDown(resData);
