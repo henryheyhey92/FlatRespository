@@ -26,6 +26,29 @@ const options = {
 }
 
 
+const optionsV2 = {
+    chart:{
+        'type': 'line',
+        'height': '100%'
+    },
+    series:[
+        //no data
+    ],
+    xaxis:{
+        'categories': ['2012','2013','2014','2015','2016','2017', '2018', '2019', '2020', '2021', '2022']
+    },
+    markers:{
+        size: 10
+    },
+    stroke:{
+        curve:'smooth'
+    },
+    noData: {
+        text:"Loading..."
+    }
+}
+
+
 //find overall avg of resale flat price
 function findOverAllAvg(data){
     let year = ['2017', '2018', '2019', '2020', '2021', '2022'];
@@ -104,16 +127,23 @@ function dropDown(data){
 
 window.document.addEventListener('DOMContentLoaded', async function(){
     let baseCaseLocation = "ANG MO KIO";
-    let data = await loadData();
-    let testData = await loadData2();
-    console.log(testData);
+    let data = await loadData(CSV_YEAR_17_22);
+    let resaleData1516 = await loadData(CSV_YEAR_15_16);
+    let resaleData1214 = await loadData(CSV_YEAR_12_14);
+    let resaleDataOA = combineAll(resaleData1214, resaleData1516, data);
+    //console.log(resaleDataOA[0][0].town);
+    //console.log(resaleDataOA);
+    let res = findByTown(resaleDataOA);
+    console.log(res);
+    await loadData2();
     let resData = transformData(data);
-    console.log(resData);
+   // console.log(resData);
     dropDown(resData);
     let avgPricePerYear = findOverAllAvg(resData);
     let townAvgPerYear = findTownAvg(resData, baseCaseLocation);
     updateOverallAvgChart(avgPricePerYear);
     updateTownChartFunc(townAvgPerYear);
+    updateTownChartFuncV2(res);
 
 })
 
@@ -132,7 +162,14 @@ function updateTownChartFunc(data)
     }])
 }
 
+function updateTownChartFuncV2(data)
+{
+    townChartV2.updateSeries(data)
+}
+
 const chart = new ApexCharts(document.querySelector('#chart'), options);
 const townChart = new ApexCharts(document.querySelector('#townChart'), options);
+const townChartV2 = new ApexCharts(document.querySelector('#townChartV2'), optionsV2);
 chart.render();
 townChart.render();
+townChartV2.render();
