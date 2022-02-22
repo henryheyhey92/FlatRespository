@@ -5,13 +5,20 @@ const ID_YEAR_17_22 = "f1765b54-a209-4718-8d38-a39237f502b3";
 const CSV_YEAR_12_14 = "year12to14data.csv";
 const CSV_YEAR_15_16 = "year15to16data.csv";
 const CSV_YEAR_17_22 = "year17to22data.csv";
-let townNameArr = ["ANG MO KIO", "BEDOK","BISHAN", "BUKIT BATOK", "BUKIT MERAH","BUKIT PANJANG","BUKIT TIMAH"
+const townNameArr = ["ANG MO KIO", "BEDOK","BISHAN", "BUKIT BATOK", "BUKIT MERAH","BUKIT PANJANG","BUKIT TIMAH"
 ,"CENTRAL AREA", "CHOA CHU KANG", "CLEMENTI", "GEYLANG", "HOUGANG", "JURONG EAST", "JURONG WEST", "KALLANG/WHAMPOA"
 ,"MARINE PARADE", "PASIR RIS", "PUNGGOL", "QUEENSTOWN", "SEMBAWANG","SENGKANG","SERANGOON", "TAMPINES","TOA PAYOH"
 ,"WOODLANDS", "YISHUN"];
 
+const flatType = ["3 ROOM", "4 ROOM", "5 ROOM", "2 ROOM", "EXECUTIVE", "1 ROOM", "MULTI-GENERATION"];
+
 let years = ['2012','2013','2014','2015','2016','2017', '2018', '2019', '2020', '2021', '2022'];
 
+const central = ["BISHAN","BUKIT MERAH","CENTRAL AREA", "GEYLANG", "KALLANG/WHAMPOA", "MARINE PARADE", "TOA PAYOH", "QUEENSTOWN"];
+const east = ["BEDOK", "PASIR RIS", "TAMPINES"];
+const north = ["SEMBAWANG", "YISHUN", "ANG MO KIO", "HOUGANG", "PUNGGOL","SENGKANG", "SERANGOON", "WOODLANDS"];
+const south = ["BUKIT TIMAH"];
+const west = ["BUKIT BATOK", "BUKIT PANJANG", "CHOA CHU KANG", "CLEMENTI", "JURONG EAST", "JURONG WEST"];
 
 async function loadData(csvFileName){
     //get the CSV file via axios
@@ -50,16 +57,12 @@ async function loadData2(){
     let resNew1 = res1.data.result.records
     let resNew2 = res2.data.result.records
     let resNew3 = res3.data.result.records
-    // console.log(resNew1);
-    // console.log(resNew2);
-    // console.log(resNew3);
+
 
     responseArr.push(resNew1);
     responseArr.push(resNew2);
     responseArr.push(resNew3);
-    //console.log(responseArr[2]);
-    //const json = await csv().fromString(response.data);
-    //return response.data;
+    
 }
 
 function transformData(rawData){
@@ -111,7 +114,6 @@ function combineAll(data1, data2, data3)
 //To find all the graph result base on 
 //location, average price and year 
 function findByTown(data){
-    let map1 = new Map();
     let transformData = [];
     let objTransfrom = [];
     console.log()
@@ -165,7 +167,45 @@ function findByYear(data){
 }
 
 function findByFlatType(data){
+    let transformData = [];
+    let objecTransform = [];
+    //make your key to flat type
 
+
+}
+
+function sortByTown(data){
+    let transformData = [];
+    let objectTrans = [];
+
+    for(let townName of townNameArr)
+    {
+        transformData = [];
+
+        for(let y of years)
+        {
+            for(let i = 0; i<data.length; i++)
+            {
+                let num = data[i].month.slice(0,4)
+                if(data[i].town === townName && (parseInt(num) === parseInt(y)))
+                {
+                    transformData.push(data[i]);
+                }
+                else
+                {
+                    continue;
+                }
+            }
+        }
+        objectTrans.push({
+            'name': townName,
+            'data': transformData
+        });
+    }
+    return objectTrans;
+}
+
+function groupBy(data){
 
 }
 
