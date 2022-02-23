@@ -15,7 +15,7 @@ const options = {
         'categories': ['2017', '2018', '2019', '2020', '2021', '2022']
     },
     markers:{
-        size: 10
+        size:10
     },
     stroke:{
         curve:'smooth'
@@ -38,12 +38,12 @@ const optionsV2 = {
         'categories': ['2012','2013','2014','2015','2016','2017', '2018', '2019', '2020', '2021', '2022']
     },
     markers:{
-        size: 10
+        size:8
     },
     stroke:{
         curve:'smooth'
     },
-    noData: {
+    noData: { 
         text:"Loading..."
     }
 }
@@ -59,7 +59,14 @@ window.document.addEventListener('DOMContentLoaded', async function(){
     //combine dataset and sort data by town
     let resaleDataOA = combineAll(resaleData1214, resaleData1516, data);
     let filteredData = sortByTown(resaleDataOA);
-    console.log(filteredData);
+    //console.log(filteredData.get("ANG MO KIO").length);
+    
+    // find the popular flat type
+    let popularFlatType = findByFlatType(filteredData);
+    console.log(popularFlatType);
+    updateTownChartByFlatTypeV1(popularFlatType);
+
+    //console.log(filteredData.get("ANG MO KIO").length);
     //console.log(resaleDataOA[0][0].town);
     //console.log(resaleDataOA);
 
@@ -86,12 +93,19 @@ function updateTownChartFunc(data)
 
 function updateTownChartFuncV2(data)
 {
-    townChartV2.updateSeries(data)
+    townChartV2.updateSeries(data);
+}
+
+function updateTownChartByFlatTypeV1(data)
+{
+    flatTypeChart.updateSeries(data);
 }
 
 // const chart = new ApexCharts(document.querySelector('#chart'), options);
 // const townChart = new ApexCharts(document.querySelector('#townChart'), options);
 const townChartV2 = new ApexCharts(document.querySelector('#townChartV2'), optionsV2);
+const flatTypeChart = new ApexCharts(document.querySelector('#flatTypeChart'), optionsV2);
 // chart.render();
 // townChart.render();
 townChartV2.render();
+flatTypeChart.render();
