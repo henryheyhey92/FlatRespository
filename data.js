@@ -179,8 +179,8 @@ function groupBy(data) {
 
 }
 
-function findByFlatType(townData) {
-    let townName = "ANG MO KIO";
+function findByFlatType(townData, townName) {
+    // let townName = "ANG MO KIO";
     let singleTownData = townData.get(townName);
     let len = townData.get(townName).length;
     let flatTypeAvgObj = [];

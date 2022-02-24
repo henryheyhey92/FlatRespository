@@ -48,6 +48,22 @@ const optionsV2 = {
     }
 }
 
+function dropDownMeun(data){
+    for(let townName of townNameArr)
+    {
+        document.querySelector('#towns').innerHTML += '<option class="opt" value="' + townName+ '">' + townName + '</option>';
+    }
+    let selectedTown = document.querySelector('#towns');
+    selectedTown.addEventListener('change', function(){
+        console.log(selectedTown)
+        let chosenTown = selectedTown.options[selectedTown.selectedIndex].value;
+        let popularFlatType = findByFlatType(data, chosenTown); 
+        updateTownChartByFlatTypeV1(popularFlatType);
+    })
+
+}
+
+
 
 window.document.addEventListener('DOMContentLoaded', async function(){
     let baseCaseLocation = "ANG MO KIO";
@@ -60,19 +76,21 @@ window.document.addEventListener('DOMContentLoaded', async function(){
     let resaleDataOA = combineAll(resaleData1214, resaleData1516, data);
     let filteredData = sortByTown(resaleDataOA);
     //console.log(filteredData.get("ANG MO KIO").length);
-    
-    // find the popular flat type
-    let popularFlatType = findByFlatType(filteredData);
-    console.log(popularFlatType);
+    //chart 1: find average resale flat pricing by location
+    let res = findByTown(resaleDataOA);
+    updateTownChartFuncV2(res);
+
+    // chart 2: find the popular flat type
+    let popularFlatType = findByFlatType(filteredData, baseCaseLocation);
+    dropDownMeun(filteredData);
     updateTownChartByFlatTypeV1(popularFlatType);
+    
 
     //console.log(filteredData.get("ANG MO KIO").length);
     //console.log(resaleDataOA[0][0].town);
     //console.log(resaleDataOA);
 
-    //chart 1: find average resale flat pricing by location
-    let res = findByTown(resaleDataOA);
-    updateTownChartFuncV2(res);
+    
 
 })
 

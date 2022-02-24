@@ -1,3 +1,27 @@
 .allChart{
     display: flex;
 }
+
+.chartCard{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+    transition: 0.3s;
+    padding: 5px 5px 5px 5px;
+    border: 10px 10px 10px 10px;
+    margin-top: 2vh;
+    margin-bottom:5vh;
+    border-radius: 15px;
+}
+
+.card{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+    transition: 0.3s;
+    padding: 5px 5px 5px 5px;
+    border: 10px 10px 10px 10px;
+    height: 10vh;
+    margin-top: 2vh;
+    margin-bottom:5vh;
+}
+
+.card:hover{
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
