@@ -1,32 +1,4 @@
-// async function main(){
-//     let response = await axios.get('https://data.gov.sg/api/action/datastore_search?resource_id=f1765b54-a209-4718-8d38-a39237f502b3&limit=5');
-//     console.log(response.data);
-// }
-
-const options = {
-    chart:{
-        'type': 'line',
-        'height': '100%'
-    },
-    series:[
-        //no data
-    ],
-    xaxis:{
-        'categories': ['2017', '2018', '2019', '2020', '2021', '2022']
-    },
-    markers:{
-        size:10
-    },
-    stroke:{
-        curve:'smooth'
-    },
-    noData: {
-        text:"Loading..."
-    }
-}
-
-
-const optionsV2 = {
+const optionsV1 = {
     chart:{
         'type': 'line',
         'height': '100%'
@@ -76,22 +48,18 @@ window.document.addEventListener('DOMContentLoaded', async function(){
     let resaleDataOA = combineAll(resaleData1214, resaleData1516, data);
     let filteredData = sortByTown(resaleDataOA);
     //console.log(filteredData.get("ANG MO KIO").length);
-    //chart 1: find average resale flat pricing by location
-    let res = findByTown(resaleDataOA);
-    updateTownChartFuncV2(res);
 
-    // chart 2: find the popular flat type
+    /*chart 1: find average resale flat pricing by location */
+    let res = findByTown(resaleDataOA);
+    updateTownChartFuncV1(res);
+
+    /* chart 2: find the popular flat type */
     let popularFlatType = findByFlatType(filteredData, baseCaseLocation);
     dropDownMeun(filteredData);
     updateTownChartByFlatTypeV1(popularFlatType);
-    
 
-    //console.log(filteredData.get("ANG MO KIO").length);
-    //console.log(resaleDataOA[0][0].town);
-    //console.log(resaleDataOA);
 
     
-
 })
 
 function updateOverallAvgChart(data){
@@ -109,9 +77,9 @@ function updateTownChartFunc(data)
     }])
 }
 
-function updateTownChartFuncV2(data)
+function updateTownChartFuncV1(data)
 {
-    townChartV2.updateSeries(data);
+    townChartV1.updateSeries(data);
 }
 
 function updateTownChartByFlatTypeV1(data)
@@ -119,11 +87,10 @@ function updateTownChartByFlatTypeV1(data)
     flatTypeChart.updateSeries(data);
 }
 
-// const chart = new ApexCharts(document.querySelector('#chart'), options);
-// const townChart = new ApexCharts(document.querySelector('#townChart'), options);
-const townChartV2 = new ApexCharts(document.querySelector('#townChartV2'), optionsV2);
-const flatTypeChart = new ApexCharts(document.querySelector('#flatTypeChart'), optionsV2);
-// chart.render();
-// townChart.render();
-townChartV2.render();
+//const to create instance of ApexCharts
+const townChartV1 = new ApexCharts(document.querySelector('#townChartV1'), optionsV1);
+const flatTypeChart = new ApexCharts(document.querySelector('#flatTypeChart'), optionsV1);
+
+//render fucntion
+townChartV1.render();
 flatTypeChart.render();

@@ -25,44 +25,7 @@ async function loadData(csvFileName) {
     const response = await axios.get(csvFileName);
     //cobert raw CSV file into asn array of JSON objects
     const json = await csv().fromString(response.data);
-    //console.log(json);
     return json;
-}
-
-//function under development 
-async function loadData2() {
-    let responseArr = [];
-    let townName = "JURONG EAST"
-    let p = {
-        'resource_id': ID_YEAR_12_14,
-        'q': townName
-    }
-
-    let q = {
-        'resource_id': ID_YEAR_15_16,
-        'q': townName
-    }
-
-    let r = {
-        'resource_id': ID_YEAR_17_22,
-        'q': townName
-    }
-    let req1 = axios.get(BASE_API_URL, { 'params': p });
-    let req2 = axios.get(BASE_API_URL, { 'params': q });
-    let req3 = axios.get(BASE_API_URL, { 'params': r });
-
-    let res1 = await req1;
-    let res2 = await req2;
-    let res3 = await req3;
-    let resNew1 = res1.data.result.records
-    let resNew2 = res2.data.result.records
-    let resNew3 = res3.data.result.records
-
-
-    responseArr.push(resNew1);
-    responseArr.push(resNew2);
-    responseArr.push(resNew3);
-
 }
 
 function transformData(rawData) {
@@ -222,10 +185,5 @@ function findByFlatType(townData, townName) {
 
     }
     return flatTypeAvgObj;
-
-}
-
-function findPopularlityCentral(centralData) {
-
 
 }
