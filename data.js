@@ -1,25 +1,3 @@
-const BASE_API_URL = `https://data.gov.sg/api/action/datastore_search`;
-const ID_YEAR_12_14 = "83b2fc37-ce8c-4df4-968b-370fd818138b";
-const ID_YEAR_15_16 = "1b702208-44bf-4829-b620-4615ee19b57c";
-const ID_YEAR_17_22 = "f1765b54-a209-4718-8d38-a39237f502b3";
-const CSV_YEAR_12_14 = "year12to14data.csv";
-const CSV_YEAR_15_16 = "year15to16data.csv";
-const CSV_YEAR_17_22 = "year17to22data.csv";
-const townNameArr = ["ANG MO KIO", "BEDOK", "BISHAN", "BUKIT BATOK", "BUKIT MERAH", "BUKIT PANJANG", "BUKIT TIMAH"
-    , "CENTRAL AREA", "CHOA CHU KANG", "CLEMENTI", "GEYLANG", "HOUGANG", "JURONG EAST", "JURONG WEST", "KALLANG/WHAMPOA"
-    , "MARINE PARADE", "PASIR RIS", "PUNGGOL", "QUEENSTOWN", "SEMBAWANG", "SENGKANG", "SERANGOON", "TAMPINES", "TOA PAYOH"
-    , "WOODLANDS", "YISHUN"];
-
-const flatType = ["3 ROOM", "4 ROOM", "5 ROOM", "2 ROOM", "EXECUTIVE", "1 ROOM", "MULTI-GENERATION"];
-
-let years = ['2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022'];
-
-const central = ["BISHAN", "BUKIT MERAH", "CENTRAL AREA", "GEYLANG", "KALLANG/WHAMPOA", "MARINE PARADE", "TOA PAYOH", "QUEENSTOWN"];
-const east = ["BEDOK", "PASIR RIS", "TAMPINES"];
-const north = ["SEMBAWANG", "YISHUN", "ANG MO KIO", "HOUGANG", "PUNGGOL", "SENGKANG", "SERANGOON", "WOODLANDS"];
-const south = ["BUKIT TIMAH"];
-const west = ["BUKIT BATOK", "BUKIT PANJANG", "CHOA CHU KANG", "CLEMENTI", "JURONG EAST", "JURONG WEST"];
-
 async function loadData(csvFileName) {
     //get the CSV file via axios
     const response = await axios.get(csvFileName);
@@ -138,9 +116,6 @@ function sortByTown(data) {
     return map1;
 }
 
-function groupBy(data) {
-
-}
 
 function findByFlatType(townData, townName) {
     // let townName = "ANG MO KIO";
@@ -148,12 +123,14 @@ function findByFlatType(townData, townName) {
     let len = townData.get(townName).length;
     let flatTypeAvgObj = [];
     let flatAvgPrice = [];
+    let countflat = [];
 
     for (let flat of flatType) {
         let sum = 0;
         let count = 0;
         let avg = 0;
         flatAvgPrice = [];
+        countflat = [];
         for (let y of years) {
             for (let i = 0; i<len; i++) {
                 if(isNaN(singleTownData[i].resale_price))
@@ -173,6 +150,7 @@ function findByFlatType(townData, townName) {
             }
             avg = sum / count;
             flatAvgPrice.push(avg.toFixed(0));
+            countflat.push(count);
         }
         if(avg == 0 || isNaN(avg))
         {
@@ -180,10 +158,85 @@ function findByFlatType(townData, townName) {
         }
         flatTypeAvgObj.push({
             'name': flat,
-            'data': flatAvgPrice
+            'data': flatAvgPrice,
+            'count':countflat
            })
 
     }
     return flatTypeAvgObj;
 
+}
+
+function findFlatTypeCountByYear(townData)
+{
+    let flatTypeLen = flatType.length;
+
+}
+
+function groupDataByYear(townData)
+{   
+    let townObj = []
+    let monthVal = [];
+    let yearMap = new Map();
+   for(let y of years){
+     townObj = [];
+       for(let town of centralRegion){
+           let getTownInfo = townData.get(town);
+           monthVal = [];
+           for(let i = 0; i< getTownInfo.length; i++){
+                let currYear = getTownInfo[i].month.slice(0,4);
+                //console.log(currYear+", "+y)
+                if(parseInt(currYear) !== parseInt(y)){
+                    continue;
+                }else{
+                    monthVal.push(getTownInfo[i]);
+                }
+           }
+           townObj.push({
+               "town-name":town,
+               "value":monthVal
+           });
+           //console.log(townObj);
+       }
+       yearMap.set(y, townObj);
+   }
+   return yearMap;
+}
+
+
+function regionChart(data, selectedRegion, chosenYear){
+    let objData = [];
+    let year = 2012;
+    if(chosenYear !== undefined || chosenYear !== null){
+        year = parseInt(chosenYear);
+    }
+    for(let f of flatType){
+        let countFlat = [];
+        for(let town of selectedRegion){
+            let count = 0;
+            let getLocation = data.get(town);
+            let len = getLocation.length;
+            for(let i = 0; i<len; i++){
+                let curr = getLocation[i].month.slice(0,4);
+                let getFlatType = getLocation[i].flat_type;
+
+                if(getFlatType !== f){
+                    continue;
+                }
+
+                if(parseInt(curr) !== 2012){
+                    continue;
+                }else{
+                    count++
+                }
+
+            }
+            countFlat.push(count);
+        }
+        objData.push({
+            'name':f,
+            'data':countFlat
+        })
+    }
+    return objData;
 }
