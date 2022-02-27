@@ -1,12 +1,36 @@
 function updateTownChartFuncV1(data)
 {
     townChartV1.updateSeries(data);
+    townChartV1.updateOptions({
+        title:{
+            text: "Average transacted resale flat price by town"
+        },
+        tooltip:{
+            y:{
+                formatter: function(val){
+                    return "$ "+val/1000+" K"
+                }
+            }
+         }
+    })
 }
 
 function updateTownChartByFlatTypeV1(data)
 {
     //console.log(data);
     flatTypeChart.updateSeries(data);
+    flatTypeChart.updateOptions({
+        title:{
+            text: "Average Resale flat price base on flat type"
+        },
+        tooltip:{
+            y:{
+                formatter: function(val){
+                    return "$ "+val/1000+" K"
+                }
+            }
+         }
+    })
 }
 
 function updateFlatTypeCountV1(data, region){
@@ -14,6 +38,11 @@ function updateFlatTypeCountV1(data, region){
     popularFlatTypeChart.updateOptions({
         xaxis:{
             categories: region
+        }
+    });
+    popularFlatTypeChart.updateOptions({
+        title:{
+            text: "Number of resale flats transacted by region in year 2019"
         }
     });
 }

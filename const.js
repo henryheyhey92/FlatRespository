@@ -82,7 +82,7 @@ const optionsByNumOfFlatType = {
     },
     yaxis: {
         title:{
-            text:'$ (thousands)'
+            text:'(number of transacted flats)'
         }
     },
     fill:{
@@ -91,9 +91,23 @@ const optionsByNumOfFlatType = {
     tooltip:{
        y:{
            formatter: function(val){
-               return "$ "+ val + " thousands"
+               return val
            }
        }
+    },
+    title:{
+        text: "Testing 123",
+        align: 'left',
+        margin: 10,
+        offsetX: 0,
+        offsetY: 0,
+        floating: false,
+        style: {
+          fontSize:  '14px',
+          fontWeight:  'bold',
+          fontFamily:  undefined,
+          color:  '#263238'
+        }
     },
     noData: { 
         text:"Loading..."

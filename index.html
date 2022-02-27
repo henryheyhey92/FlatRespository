@@ -10,12 +10,17 @@
 </head>
 <body>
     <h1>Singapore annual average resale flat price chart</h1>
-    <!-- town average graph  -->
-    <div>
-        <div id="townChartV1" style="height: 80vh;">
+    <!-- chart 1: town average graph  -->
+    <div class="container">
+        <div class="chartCard">
+            <div>
+                <div id="townChartV1" style="height: 80vh;">
+                </div>
+            </div>
         </div>
     </div>
-    <!-- flat type average graph -->
+    
+    <!-- chart 2: flat type average graph -->
     <div class="container">
         <div class="chartCard">
             <div>
@@ -23,48 +28,55 @@
                 </div>
             </div>
         </div>
+        <div class="card">
+            <label for="town">Choose town :</label>
+            <select name="town" id="towns">Choose</select>
+        </div>
     </div>
    
+
+    <!-- chart 3: count the number of flat type in region -->
+    <div class="container">
+        <div class="chartCard">
+            <div class="subsitube">
+                <div id="countFlatByLocationChart" style="height: 80vh;">
+        
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container">
         <div class="card">
-                <label for="town">Choose town :</label>
-                <select name="town" id="towns">Choose</select>
+            <label for="region">Choose region :</label>
+            <div class="radioBtnReigon">
+                <div>
+                    <input class="radio-btn" id="central" type="radio" name="region" value="central" checked>
+                    <label for="central">Central</label>
+                </div>
+                <div>
+                    <input class="radio-btn" id="east" type="radio" name="region" value="east">
+                    <label for="east">East</label>
+                </div>
+                <div>
+                    <input class="radio-btn" id="north" type="radio" name="region" value="north">
+                    <label for="north">North</label>
+                </div>
+                <div>
+                    <input class="radio-btn" id="south" type="radio" name="region" value="south">
+                    <label for="south">South</label>
+                </div>
+                <div>
+                    <input class="radio-btn" id="west" type="radio" name="region" value="west">
+                    <label for="west">West</label>
+                </div>
+            </div>
+            <div>
+                <label for="year">Choose Year :</label>
+                <select name="years" id="year">Choose</select>
+            </div>
         </div>
     </div>
-    <div class="subsitube">
-        <div id="countFlatByLocationChart" style="height: 80vh;">
-
-        </div>
-    </div>
-    <div class="card">
-        <label for="region">Choose region :</label>
-        <div class="radioBtnReigon">
-            <div>
-                <input class="radio-btn" id="central" type="radio" name="region" value="central" checked>
-                <label for="central">Central</label>
-            </div>
-            <div>
-                <input class="radio-btn" id="east" type="radio" name="region" value="east">
-                <label for="east">East</label>
-            </div>
-            <div>
-                <input class="radio-btn" id="north" type="radio" name="region" value="north">
-                <label for="north">North</label>
-            </div>
-            <div>
-                <input class="radio-btn" id="south" type="radio" name="region" value="south">
-                <label for="south">South</label>
-            </div>
-            <div>
-                <input class="radio-btn" id="west" type="radio" name="region" value="west">
-                <label for="west">West</label>
-            </div>
-        </div>
-        <div>
-            <label for="year">Choose Year :</label>
-            <select name="years" id="year">Choose</select>
-        </div>
-    </div>
+    
     <!-- apexcharts -->
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <!-- cvs to json cdn  -->
