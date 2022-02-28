@@ -1,86 +1,83 @@
-function updateTownChartFuncV1(data)
-{
+function updateTownChartFuncV1(data) {
     townChartV1.updateSeries(data);
     townChartV1.updateOptions({
-        title:{
+        title: {
             text: "Average transacted resale flat price by town"
         },
-        tooltip:{
-            y:{
-                formatter: function(val){
-                    return "$ "+val/1000+" K"
+        tooltip: {
+            y: {
+                formatter: function (val) {
+                    return "$ " + val / 1000 + " K"
                 }
             }
-         }
+        }
     })
 }
 
-function updateTownChartByFlatTypeV1(data)
-{
+function updateTownChartByFlatTypeV1(data) {
     //console.log(data);
     flatTypeChart.updateSeries(data);
     flatTypeChart.updateOptions({
-        title:{
+        title: {
             text: "Average Resale flat price base on flat type"
         },
-        tooltip:{
-            y:{
-                formatter: function(val){
-                    return "$ "+val/1000+" K"
+        tooltip: {
+            y: {
+                formatter: function (val) {
+                    return "$ " + val / 1000 + " K"
                 }
             }
-         }
+        }
     })
 }
 
-function updateFlatTypeCountV1(data, region){
+function updateFlatTypeCountV1(data, region) {
     popularFlatTypeChart.updateSeries(data);
     popularFlatTypeChart.updateOptions({
-        xaxis:{
+        xaxis: {
             categories: region
         }
     });
     popularFlatTypeChart.updateOptions({
-        title:{
+        title: {
             text: "Number of resale flats transacted by region in year 2019"
         }
     });
 }
 
-function dropDownMeun(data){
-    for(let townName of townNameArr)
-    {
-        document.querySelector('#towns').innerHTML += '<option class="opt" value="' + townName+ '">' + townName + '</option>';
+function dropDownMeun(data) {
+    for (let townName of townNameArr) {
+        document.querySelector('#towns').innerHTML += '<option class="opt" value="' + townName + '">' + townName + '</option>';
     }
     let selectedTown = document.querySelector('#towns');
-    selectedTown.addEventListener('change', function(){
+    selectedTown.addEventListener('change', function () {
         //console.log(selectedTown)
         let chosenTown = selectedTown.options[selectedTown.selectedIndex].value;
-        let popularFlatType = findByFlatType(data, chosenTown); 
+        let popularFlatType = findByFlatType(data, chosenTown);
         updateTownChartByFlatTypeV1(popularFlatType);
     })
 
 }
 
-function dropDownYearMenu(data, selectedRegion){
-    for(let y of years){
-        document.querySelector('#year').innerHTML += '<option class="optYear" value="' +y+ '">' + y + '</option>';
+function dropDownYearMenu(data, selectedRegion) {
+    for (let y of years) {
+        document.querySelector('#year').innerHTML += '<option class="optYear" value="' + y + '">' + y + '</option>';
     }
     let selectedYear = document.querySelector('#year');
-    selectedYear.addEventListener('change', function(){
+    selectedYear.addEventListener('change', function () {
         let chosenYear = selectedYear.options[selectedYear.selectedIndex].value;
     })
 }
 
 
-function findSelectedRadioBtn(data, allRegionMap){
+function findSelectedRadioBtn(data, allRegionMap) {
     let sr = centralRegionOne;
     let name = null;
     //console.log(allRegionMap);
     document.querySelectorAll('input[name="region"]').forEach((elem) => {
-        elem.addEventListener('change', function(event){
+        elem.addEventListener('change', function (event) {
             name = event.target.value;
-            
+
             sr = allRegionMap.get(name); //to get the region array 
 
             let selectedYear = document.querySelector('#year');
@@ -88,42 +85,42 @@ function findSelectedRadioBtn(data, allRegionMap){
             let getChart = regionChart(data, sr, parseInt(chosenYear));
             updateFlatTypeCountV1(getChart, sr);
         })
-       
+
     })
 
 }
 
-function radiofunc(resaleDataOA, allRegionMap){
+function radiofunc(resaleDataOA, allRegionMap) {
 
-        // generate the radio groups
-        let name = null;        
-        const group = document.querySelector("#group");
-        for(let i = 0; i< region.length; i++){
-            group.innerHTML += (region[i] === "centralRegionOne") ? (`<div>
+    // generate the radio groups
+    let name = null;
+    const group = document.querySelector("#group");
+    for (let i = 0; i < region.length; i++) {
+        group.innerHTML += (region[i] === "centralRegionOne") ? (`<div>
             <input class="radio-btn" type="radio" name="chartOneRegion" value="${region[i]}" id="${region[i]}" checked>
              <label for="${region[i]}">${regionShort[i]}</label>
         </div>`) : (`<div>
         <input class="radio-btn" type="radio" name="chartOneRegion" value="${region[i]}" id="${region[i]}">
          <label for="${region[i]}">${regionShort[i]}</label>
     </div>`)
-            
-        }
 
-        document.querySelectorAll('input[name=chartOneRegion]').forEach((elem) =>{
-            elem.addEventListener('change',function(event){
-                name = event.target.value;
-                name = allRegionMap.get(name);
-                let priceByLocation = findByTown(resaleDataOA, name);
-                updateTownChartFuncV1(priceByLocation);
-            })
+    }
+
+    document.querySelectorAll('input[name=chartOneRegion]').forEach((elem) => {
+        elem.addEventListener('change', function (event) {
+            name = event.target.value;
+            name = allRegionMap.get(name);
+            let priceByLocation = findByTown(resaleDataOA, name);
+            updateTownChartFuncV1(priceByLocation);
         })
+    })
 }
 
 /******************************************
  * Set hashmap to get location array value 
  * 
  *****************************************/
-function setRegionMap(allRegionMap){
+function setRegionMap(allRegionMap) {
     allRegionMap.set("centralRegionOne", centralRegionOne);
     allRegionMap.set("centralRegionTwo", centralRegionTwo);
     allRegionMap.set("eastRegion", eastRegion);
@@ -136,15 +133,15 @@ function setRegionMap(allRegionMap){
 }
 
 
-window.document.addEventListener('DOMContentLoaded', async function(){
+window.document.addEventListener('DOMContentLoaded', async function () {
     let baseCaseLocation = "ANG MO KIO";
     let allRegionMap = new Map();
     //axios get method
     let data = await loadData(CSV_YEAR_17_22);
     let resaleData1516 = await loadData(CSV_YEAR_15_16);
     let resaleData1214 = await loadData(CSV_YEAR_12_14);
-    let newAllRegionMap = setRegionMap(allRegionMap); 
-    
+    let newAllRegionMap = setRegionMap(allRegionMap);
+
     /************************************************ 
      * fliter /sort data function 
      * 
@@ -156,7 +153,7 @@ window.document.addEventListener('DOMContentLoaded', async function(){
     //console.log(filteredData);
     //let filteredDataByYear = groupDataByYear(filteredData);
     //console.log(filteredDataByYear);
-  
+
 
     /***********************************************
      * Chart function

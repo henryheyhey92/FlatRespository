@@ -24,7 +24,7 @@ const southRegion = ["BUKIT TIMAH"];
 const westRegionOne = ["BUKIT BATOK", "BUKIT PANJANG", "CHOA CHU KANG"];
 const westRegionTwo = ["CLEMENTI", "JURONG EAST", "JURONG WEST"];
 const region = ["centralRegionOne", "centralRegionTwo", "eastRegion", "northRegionOne", "northRegionTwo", "southRegion", "westRegionOne", "westRegionTwo"];
-const regionShort = ["central-1", "centra-2", "east", "north-1", "north-2", "south", "west-1", "west-2"];
+const regionShort = ["central-1", "central-2", "east", "north-1", "north-2", "south", "west-1", "west-2"];
 
 
 
@@ -40,12 +40,26 @@ const optionsV1 = {
     xaxis:{
         'categories': ['2012','2013','2014','2015','2016','2017', '2018', '2019', '2020', '2021', '2022']
     },
+    yaxis:{
+        labels: {
+            formatter: function (value) {
+              return "$ "+value/1000 + " k";
+            }
+          }
+    },
     markers:{
         size:8
     },
     stroke:{
         curve:'smooth'
     },
+    legend: {
+        position: 'top',
+        horizontalAlign: 'center',
+        floating: true,
+        offsetY: 0,
+        offsetX: 0
+      },
     noData: { 
         text:"Loading..."
     }
@@ -112,7 +126,13 @@ const optionsByNumOfFlatType = {
           fontFamily:  undefined,
           color:  '#263238'
         }
-    },
+    },legend: {
+        position: 'top',
+        horizontalAlign: 'center',
+        floating: true,
+        offsetY: 0,
+        offsetX: 0
+      },
     noData: { 
         text:"Loading..."
     }
