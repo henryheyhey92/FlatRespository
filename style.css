@@ -48,3 +48,8 @@
     font-size: 3rem;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
+#group{
+    display: flex;
+    justify-content: space-around;
+}

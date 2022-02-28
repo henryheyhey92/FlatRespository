@@ -24,6 +24,7 @@ const southRegion = ["BUKIT TIMAH"];
 const westRegionOne = ["BUKIT BATOK", "BUKIT PANJANG", "CHOA CHU KANG"];
 const westRegionTwo = ["CLEMENTI", "JURONG EAST", "JURONG WEST"];
 const region = ["centralRegionOne", "centralRegionTwo", "eastRegion", "northRegionOne", "northRegionTwo", "southRegion", "westRegionOne", "westRegionTwo"];
+const regionShort = ["central-1", "centra-2", "east", "north-1", "north-2", "south", "west-1", "west-2"];
 
 
 

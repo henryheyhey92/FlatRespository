@@ -93,6 +93,36 @@ function findSelectedRadioBtn(data, allRegionMap){
 
 }
 
+function radiofunc(resaleDataOA, allRegionMap){
+
+        // generate the radio groups
+        let name = null;        
+        const group = document.querySelector("#group");
+        for(let i = 0; i< region.length; i++){
+            group.innerHTML += (region[i] === "centralRegionOne") ? (`<div>
+            <input class="radio-btn" type="radio" name="chartOneRegion" value="${region[i]}" id="${region[i]}" checked>
+             <label for="${region[i]}">${regionShort[i]}</label>
+        </div>`) : (`<div>
+        <input class="radio-btn" type="radio" name="chartOneRegion" value="${region[i]}" id="${region[i]}">
+         <label for="${region[i]}">${regionShort[i]}</label>
+    </div>`)
+            
+        }
+
+        document.querySelectorAll('input[name=chartOneRegion]').forEach((elem) =>{
+            elem.addEventListener('change',function(event){
+                name = event.target.value;
+                name = allRegionMap.get(name);
+                let priceByLocation = findByTown(resaleDataOA, name);
+                updateTownChartFuncV1(priceByLocation);
+            })
+        })
+}
+
+/******************************************
+ * Set hashmap to get location array value 
+ * 
+ *****************************************/
 function setRegionMap(allRegionMap){
     allRegionMap.set("centralRegionOne", centralRegionOne);
     allRegionMap.set("centralRegionTwo", centralRegionTwo);
@@ -115,27 +145,43 @@ window.document.addEventListener('DOMContentLoaded', async function(){
     let resaleData1214 = await loadData(CSV_YEAR_12_14);
     let newAllRegionMap = setRegionMap(allRegionMap); 
     
-
+    /************************************************ 
+     * fliter /sort data function 
+     * 
+    *************************************************/
     //combine dataset and sort data by town
     let resaleDataOA = combineAll(resaleData1214, resaleData1516, data);
     let filteredData = await sortByTown(resaleDataOA);
     //console.log(filteredData.get("ANG MO KIO")[0]);
     //console.log(filteredData);
-    let filteredDataByYear = groupDataByYear(filteredData);
-    //console.log(filteredDataByYear.get('2012')[0]);
-    //let get2012 = filteredDataByYear.get('2012');
+    //let filteredDataByYear = groupDataByYear(filteredData);
+    //console.log(filteredDataByYear);
+  
 
-
+    /***********************************************
+     * Chart function
+     * 
+     ***********************************************/
     /*chart 1: find average resale flat pricing by location */
-    let priceByLocation = findByTown(resaleDataOA);
+    let priceByLocation = findByTown(resaleDataOA, centralRegionOne);
     //console.log(priceByLocation)
     updateTownChartFuncV1(priceByLocation);
+    radiofunc(resaleDataOA, allRegionMap);
+
+
+
+
+    /********************End of char 1****************/
+
 
     /* chart 2: find by different flat type avg price*/
     let popularFlatType = findByFlatType(filteredData, baseCaseLocation);
     dropDownMeun(filteredData);
     //console.log(popularFlatType);
     updateTownChartByFlatTypeV1(popularFlatType);
+
+    /********************End of chart 2***************/
+
 
 
     /* chart 3: find the number of flatType in different area by year */

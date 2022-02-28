@@ -48,12 +48,12 @@ function combineAll(data1, data2, data3) {
 
 //To find all the graph result base on 
 //location, average price and year 
-function findByTown(data) {
+function findByTown(data, selectedRegion) {
     let transformData = [];
     let objTransfrom = [];
     console.log()
     //loop through all the townName
-    for (let townName of townNameArr) {
+    for (let townName of selectedRegion) {
         //loop through all years
         transformData = [];
 
