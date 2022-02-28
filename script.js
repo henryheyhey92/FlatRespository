@@ -74,7 +74,7 @@ function dropDownYearMenu(data, selectedRegion){
 
 
 function findSelectedRadioBtn(data, allRegionMap){
-    let sr = centralRegion;
+    let sr = centralRegionOne;
     let name = null;
     //console.log(allRegionMap);
     document.querySelectorAll('input[name="region"]').forEach((elem) => {
@@ -94,11 +94,14 @@ function findSelectedRadioBtn(data, allRegionMap){
 }
 
 function setRegionMap(allRegionMap){
-    allRegionMap.set("central", centralRegion);
-    allRegionMap.set("east", eastRegion);
-    allRegionMap.set("north", northRegion);
-    allRegionMap.set("south", southRegion);
-    allRegionMap.set("west", westRegion);
+    allRegionMap.set("centralRegionOne", centralRegionOne);
+    allRegionMap.set("centralRegionTwo", centralRegionTwo);
+    allRegionMap.set("eastRegion", eastRegion);
+    allRegionMap.set("northRegionOne", northRegionOne);
+    allRegionMap.set("northRegionTwo", northRegionTwo);
+    allRegionMap.set("southRegion", southRegion);
+    allRegionMap.set("westRegionOne", westRegionOne);
+    allRegionMap.set("westRegionTwo", westRegionTwo);
     return allRegionMap;
 }
 
@@ -137,8 +140,8 @@ window.document.addEventListener('DOMContentLoaded', async function(){
 
     /* chart 3: find the number of flatType in different area by year */
     //let numberFlatType = findFlatTypeCountByYear();
-    let ans = regionChart(filteredData, centralRegion);
-    updateFlatTypeCountV1(ans, centralRegion);
+    let ans = regionChart(filteredData, centralRegionOne);
+    updateFlatTypeCountV1(ans, centralRegionOne);
     dropDownYearMenu(filteredData, newAllRegionMap);
     findSelectedRadioBtn(filteredData, newAllRegionMap);
 

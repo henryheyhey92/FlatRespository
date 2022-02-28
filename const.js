@@ -15,12 +15,15 @@ const flatType = ["3 ROOM", "4 ROOM", "5 ROOM", "2 ROOM", "EXECUTIVE", "1 ROOM",
 const years = ['2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022'];
 const pastThreeYears = ['2019', '2020', '2021', '2022'];
 
-const centralRegion = ["BISHAN", "BUKIT MERAH", "CENTRAL AREA", "GEYLANG", "KALLANG/WHAMPOA", "MARINE PARADE", "TOA PAYOH", "QUEENSTOWN"];
+const centralRegionOne = ["BISHAN", "BUKIT MERAH", "CENTRAL AREA", "GEYLANG"];
+const centralRegionTwo = ["KALLANG/WHAMPOA", "MARINE PARADE", "TOA PAYOH", "QUEENSTOWN"];
 const eastRegion = ["BEDOK", "PASIR RIS", "TAMPINES"];
-const northRegion = ["SEMBAWANG", "YISHUN", "ANG MO KIO", "HOUGANG", "PUNGGOL", "SENGKANG", "SERANGOON", "WOODLANDS"];
+const northRegionOne = ["SEMBAWANG", "YISHUN", "ANG MO KIO", "HOUGANG"];
+const northRegionTwo = ["PUNGGOL", "SENGKANG", "SERANGOON", "WOODLANDS"];
 const southRegion = ["BUKIT TIMAH"];
-const westRegion = ["BUKIT BATOK", "BUKIT PANJANG", "CHOA CHU KANG", "CLEMENTI", "JURONG EAST", "JURONG WEST"];
-const region = ["centralRegion", "eastRegion", "northRegion", "southRegion", "westRegion"];
+const westRegionOne = ["BUKIT BATOK", "BUKIT PANJANG", "CHOA CHU KANG"];
+const westRegionTwo = ["CLEMENTI", "JURONG EAST", "JURONG WEST"];
+const region = ["centralRegionOne", "centralRegionTwo", "eastRegion", "northRegionOne", "northRegionTwo", "southRegion", "westRegionOne", "westRegionTwo"];
 
 
 
@@ -78,7 +81,7 @@ const optionsByNumOfFlatType = {
         colors: ['transparent']
     },
     xaxis:{
-        categories: centralRegion
+        categories: centralRegionOne
     },
     yaxis: {
         title:{

@@ -180,7 +180,7 @@ function groupDataByYear(townData)
     let yearMap = new Map();
    for(let y of years){
      townObj = [];
-       for(let town of centralRegion){
+       for(let town of centralRegionOne){
            let getTownInfo = townData.get(town);
            monthVal = [];
            for(let i = 0; i< getTownInfo.length; i++){
