@@ -30,3 +30,21 @@
     display: flex;
     justify-content: space-around;
 }
+
+#main-image{
+    height: 40vh;
+    background-color: palegoldenrod;
+    background-image: url(images/house.jpg);
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#main-image h1 {
+    color: white;
+    font-size: 3rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
