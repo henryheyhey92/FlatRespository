@@ -1,148 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    <title>Find Flat Go Where</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <title>Find Flat Go Where</title>
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Resale Go Where?</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Charts</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Offical Data</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown link
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
+  <!-- nav bar -->
+  <nav>
+    <div class="logo">Resale Go Where</div>
+
+    <div class="nav-link">
+      <ul>
+        <li><a href="" class="nav-tag">Home</a></li>
+        <li><a href="" class="nav-tag">About</a></li>
+        <li><a href="" class="nav-tag">Offical Data</a></li>
+        <li><a href="" class="nav-tag">Contact</a></li>
+      </ul>
+    </div>
+    <div class="menu-bar">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+  </nav>
+
+
+  <!-- main-image -->
+  <div id="main-image">
+    <div class="description-box-1">
+      <h3>Your Gateway to a Richer Life</h3>
+      <h1>Everyone Deserves the Opportunity of Home</h1>
+      <p>The path to get Resale flat</p>
+    </div>
+    <div class="description-box-2">
+      
+    </div>
+  </div>
+  <!-- chart 1: town average graph  -->
+  <div class="container">
+    <div class="chartCard">
+      <div>
+        <div id="townChartV1" style="height: 80vh;">
         </div>
-      </nav>
-      <!-- main-image -->
-      <div id="main-image">
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="chartCard">
+      <div id="group">
+
+      </div>
+    </div>
+  </div>
+
+  <!-- chart 2: flat type average graph -->
+  <div class="container">
+    <div class="chartCard">
+      <div>
+        <div id="flatTypeChart" style="height: 80vh;">
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <label for="town">Choose town :</label>
+      <select name="town" id="towns">Choose</select>
+    </div>
+  </div>
+
+
+  <!-- chart 3: count the number of flat type in region -->
+  <div class="container">
+    <div class="chartCard">
+      <div class="subsitube">
+        <div id="countFlatByLocationChart" style="height: 80vh;">
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="card">
+      <label for="region">Choose region :</label>
+      <div class="radioBtnReigon">
         <div>
-            <h1>Looking for resale flat?</h1>
+          <input class="radio-btn" id="centralRegionOne" type="radio" name="region" value="centralRegionOne" checked>
+          <label for="central">Central-1</label>
+        </div>
+        <div>
+          <input class="radio-btn" id="centralRegionTwo" type="radio" name="region" value="centralRegionTwo">
+          <label for="central">Central-2</label>
+        </div>
+        <div>
+          <input class="radio-btn" id="eastRegion" type="radio" name="region" value="eastRegion">
+          <label for="east">East</label>
+        </div>
+        <div>
+          <input class="radio-btn" id="northRegionOne" type="radio" name="region" value="northRegionOne">
+          <label for="north">North-1</label>
+        </div>
+        <div>
+          <input class="radio-btn" id="northRegionTwo" type="radio" name="region" value="northRegionTwo">
+          <label for="north">North-2</label>
+        </div>
+        <div>
+          <input class="radio-btn" id="southRegion" type="radio" name="region" value="southRegion">
+          <label for="south">South</label>
+        </div>
+        <div>
+          <input class="radio-btn" id="westRegionOne" type="radio" name="region" value="westRegionOne">
+          <label for="west">West-1</label>
+        </div>
+        <div>
+          <input class="radio-btn" id="westRegionTwo" type="radio" name="region" value="westRegionTwo">
+          <label for="west">West-2</label>
         </div>
       </div>
-    <!-- chart 1: town average graph  -->
-    <div class="container">
-        <div class="chartCard">
-            <div>
-                <div id="townChartV1" style="height: 80vh;">
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-      <div class="chartCard">
-          <div id="group">
-            
-          </div>
+
+      <div>
+        <label for="year">Choose Year :</label>
+        <select name="years" id="year">Choose</select>
       </div>
     </div>
-    
-    <!-- chart 2: flat type average graph -->
-    <div class="container">
-        <div class="chartCard">
-            <div>
-                <div id="flatTypeChart" style="height: 80vh;">
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <label for="town">Choose town :</label>
-            <select name="town" id="towns">Choose</select>
-        </div>
-    </div>
-   
+  </div>
 
-    <!-- chart 3: count the number of flat type in region -->
-    <div class="container">
-        <div class="chartCard">
-            <div class="subsitube">
-                <div id="countFlatByLocationChart" style="height: 80vh;">
-        
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="card">
-            <label for="region">Choose region :</label>
-            <div class="radioBtnReigon">
-                <div>
-                    <input class="radio-btn" id="centralRegionOne" type="radio" name="region" value="centralRegionOne" checked>
-                    <label for="central">Central-1</label>
-                </div>
-                <div>
-                  <input class="radio-btn" id="centralRegionTwo" type="radio" name="region" value="centralRegionTwo" >
-                  <label for="central">Central-2</label>
-              </div>
-                <div>
-                    <input class="radio-btn" id="eastRegion" type="radio" name="region" value="eastRegion">
-                    <label for="east">East</label>
-                </div>
-                <div>
-                    <input class="radio-btn" id="northRegionOne" type="radio" name="region" value="northRegionOne">
-                    <label for="north">North-1</label>
-                </div>
-                <div>
-                  <input class="radio-btn" id="northRegionTwo" type="radio" name="region" value="northRegionTwo">
-                  <label for="north">North-2</label>
-              </div>
-                <div>
-                    <input class="radio-btn" id="southRegion" type="radio" name="region" value="southRegion">
-                    <label for="south">South</label>
-                </div>
-                <div>
-                    <input class="radio-btn" id="westRegionOne" type="radio" name="region" value="westRegionOne">
-                    <label for="west">West-1</label>
-                </div>
-                <div>
-                  <input class="radio-btn" id="westRegionTwo" type="radio" name="region" value="westRegionTwo">
-                  <label for="west">West-2</label>
-              </div>
-            </div>
+  <!-- apexcharts -->
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <!-- cvs to json cdn  -->
+  <script src="https://cdn.rawgit.com/Keyang/node-csvtojson/d41f44aa/browser/csvtojson.min.js"></script>
 
-            <div>
-                <label for="year">Choose Year :</label>
-                <select name="years" id="year">Choose</select>
-            </div>
-        </div>
-    </div>
-    
-    <!-- apexcharts -->
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <!-- cvs to json cdn  -->
-    <script src="https://cdn.rawgit.com/Keyang/node-csvtojson/d41f44aa/browser/csvtojson.min.js"></script>
-
-    <!-- axios js script -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.0/axios.min.js" integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="data.js"></script>
-    <script src="const.js"></script>
-    <script src="script.js"></script>
+  <!-- axios js script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.0/axios.min.js"
+    integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="data.js"></script>
+  <script src="const.js"></script>
+  <script src="script.js"></script>
 </body>
+
 </html>

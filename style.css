@@ -1,3 +1,53 @@
+/* nav bar css  */
+.logo {
+    font-size: 2rem;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 10px;
+}
+
+.nav-link{
+    margin-left: auto;
+}
+
+.nav-link> ul{
+    /* beacuse nav-link contains margin and padding */
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link>ul>li{
+    /* border: 1px solid blue; */
+    display: inline-block;
+}
+
+.nav-link>ul>li>a{
+    text-decoration: none;
+    color: black;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    padding: 0 20px;
+
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    position: static;
+}
+
+.menu-bar > i{
+    font-size: 1.4rem;
+    color:rgb(57, 131, 180);
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.nav-tag:hover{
+    border-bottom: 3px solid rgb(57, 131, 180);
+}
+/****************/
+
 .allChart{
     display: flex;
 }
@@ -32,24 +82,49 @@
 }
 
 #main-image{
-    height: 40vh;
+    height: 50vh;
     background-color: palegoldenrod;
-    background-image: url(images/house.jpg);
+    background-image: url(images/house_one.png);
     background-size: cover;
     background-position: center;
 
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    border-bottom-right-radius: 40%;
+   
 }
 
-#main-image h1 {
-    color: white;
+.description-box-1{
+    flex-basis: 40%;
+    position: relative;
+    margin-left: 5vh;
+}
+
+.description-box-1 h1{
+    color: #FFFFFF;
     font-size: 3rem;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.description-box-1 h3 p{
+    color: white;
+    font-size: 2rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 20px 0 10px
 }
 
 #group{
     display: flex;
     justify-content: space-around;
+}
+
+body{
+  background: linear-gradient(to right, #def3ef, #ebedfa); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.chartCard{
+    background: white;
+    z-index: 1;
 }
