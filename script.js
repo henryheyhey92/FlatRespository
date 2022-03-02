@@ -154,6 +154,28 @@ window.document.addEventListener('DOMContentLoaded', async function () {
     //let filteredDataByYear = groupDataByYear(filteredData);
     //console.log(filteredDataByYear);
 
+    /*************************************************
+     * page tab
+     * 
+     *************************************************/
+    let allTab = document.querySelectorAll('#tab-bar button');
+
+    for(let tab of allTab){
+        tab.addEventListener('click', function(event){
+            let selectedTab = event.target;
+            let tabNum = selectedTab.dataset.page;
+
+            let tabs = document.querySelectorAll('.tab');
+            for(let t of tabs){
+                t.classList.remove('show');
+                t.classList.add('hidden');
+            }
+
+            let tab = document.querySelector('#chart-'+tabNum);
+            tab.classList.remove('hidden');
+            tab.classList.add('show');
+        })
+    }
 
     /***********************************************
      * Chart function

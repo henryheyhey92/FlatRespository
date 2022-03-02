@@ -41,95 +41,116 @@
       <p>The path to get Resale flat</p>
     </div>
     <div class="description-box-2">
-      
+
     </div>
   </div>
-  <!-- chart 1: town average graph  -->
-  <div class="container">
-    <div class="chartCard">
-      <div>
-        <div id="townChartV1" style="height: 80vh;">
+
+  <!-- spa page  -->
+  <div id="tab-bar">
+    <!-- //<button id="page1-btn" data-page="1">About</button> -->
+    <button id="page1-btn" data-page="1">Chart 1</button>
+    <button id="page2-btn" data-page="2">Chart 2</button>
+    <button id="page3-btn" data-page="3">Chart 3</button>
+  </div>
+
+
+  <div id="all-tab">
+    <!-- chart 1: town average graph  -->
+    <div class="tab" id="chart-1">
+      <div class="container">
+        <div class="chartCard">
+          <div>
+            <div id="townChartV1" style="height: 80vh;">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="chartCard">
+          <div id="group">
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- chart 2: flat type average graph -->
+    <div class="tab hidden" id="chart-2">
+      <div class="container">
+        <div class="chartCard">
+          <div>
+            <div id="flatTypeChart" style="height: 80vh;">
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <label for="town">Choose town :</label>
+          <select name="town" id="towns">Choose</select>
+        </div>
+      </div>
+    </div>
+
+    <!-- chart 3: count the number of flat type in region -->
+    <div class="tab hidden" id="chart-3">
+      <div class="container">
+        <div class="chartCard">
+          <div class="subsitube">
+            <div id="countFlatByLocationChart" style="height: 80vh;">
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="card">
+          <label for="region">Choose region :</label>
+          <div class="radioBtnReigon">
+            <div>
+              <input class="radio-btn" id="centralRegionOne" type="radio" name="region" value="centralRegionOne"
+                checked>
+              <label for="central">Central-1</label>
+            </div>
+            <div>
+              <input class="radio-btn" id="centralRegionTwo" type="radio" name="region" value="centralRegionTwo">
+              <label for="central">Central-2</label>
+            </div>
+            <div>
+              <input class="radio-btn" id="eastRegion" type="radio" name="region" value="eastRegion">
+              <label for="east">East</label>
+            </div>
+            <div>
+              <input class="radio-btn" id="northRegionOne" type="radio" name="region" value="northRegionOne">
+              <label for="north">North-1</label>
+            </div>
+            <div>
+              <input class="radio-btn" id="northRegionTwo" type="radio" name="region" value="northRegionTwo">
+              <label for="north">North-2</label>
+            </div>
+            <div>
+              <input class="radio-btn" id="southRegion" type="radio" name="region" value="southRegion">
+              <label for="south">South</label>
+            </div>
+            <div>
+              <input class="radio-btn" id="westRegionOne" type="radio" name="region" value="westRegionOne">
+              <label for="west">West-1</label>
+            </div>
+            <div>
+              <input class="radio-btn" id="westRegionTwo" type="radio" name="region" value="westRegionTwo">
+              <label for="west">West-2</label>
+            </div>
+          </div>
+
+          <div>
+            <label for="year">Choose Year :</label>
+            <select name="years" id="year">Choose</select>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="container">
-    <div class="chartCard">
-      <div id="group">
-
-      </div>
-    </div>
-  </div>
-
-  <!-- chart 2: flat type average graph -->
-  <div class="container">
-    <div class="chartCard">
-      <div>
-        <div id="flatTypeChart" style="height: 80vh;">
-        </div>
-      </div>
-    </div>
-    <div class="card">
-      <label for="town">Choose town :</label>
-      <select name="town" id="towns">Choose</select>
-    </div>
-  </div>
 
 
-  <!-- chart 3: count the number of flat type in region -->
-  <div class="container">
-    <div class="chartCard">
-      <div class="subsitube">
-        <div id="countFlatByLocationChart" style="height: 80vh;">
-
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="container">
-    <div class="card">
-      <label for="region">Choose region :</label>
-      <div class="radioBtnReigon">
-        <div>
-          <input class="radio-btn" id="centralRegionOne" type="radio" name="region" value="centralRegionOne" checked>
-          <label for="central">Central-1</label>
-        </div>
-        <div>
-          <input class="radio-btn" id="centralRegionTwo" type="radio" name="region" value="centralRegionTwo">
-          <label for="central">Central-2</label>
-        </div>
-        <div>
-          <input class="radio-btn" id="eastRegion" type="radio" name="region" value="eastRegion">
-          <label for="east">East</label>
-        </div>
-        <div>
-          <input class="radio-btn" id="northRegionOne" type="radio" name="region" value="northRegionOne">
-          <label for="north">North-1</label>
-        </div>
-        <div>
-          <input class="radio-btn" id="northRegionTwo" type="radio" name="region" value="northRegionTwo">
-          <label for="north">North-2</label>
-        </div>
-        <div>
-          <input class="radio-btn" id="southRegion" type="radio" name="region" value="southRegion">
-          <label for="south">South</label>
-        </div>
-        <div>
-          <input class="radio-btn" id="westRegionOne" type="radio" name="region" value="westRegionOne">
-          <label for="west">West-1</label>
-        </div>
-        <div>
-          <input class="radio-btn" id="westRegionTwo" type="radio" name="region" value="westRegionTwo">
-          <label for="west">West-2</label>
-        </div>
-      </div>
-
-      <div>
-        <label for="year">Choose Year :</label>
-        <select name="years" id="year">Choose</select>
-      </div>
-    </div>
-  </div>
 
   <!-- apexcharts -->
   <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
