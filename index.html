@@ -16,7 +16,7 @@
 
 <body>
   <!-- nav bar -->
-  <nav>
+  <nav id="nav-bar">
     <div class="logo">Resale Go Where</div>
 
     <div class="nav-link">
@@ -47,7 +47,7 @@
 
   <!-- spa page  -->
   <div id="tab-bar">
-    <!-- //<button id="page1-btn" data-page="1">About</button> -->
+    <button id="page0-btn" data-page="0">About</button>
     <button id="page1-btn" data-page="1">Chart 1</button>
     <button id="page2-btn" data-page="2">Chart 2</button>
     <button id="page3-btn" data-page="3">Chart 3</button>
@@ -55,8 +55,18 @@
 
 
   <div id="all-tab">
+    <!-- about -->
+    <div class="tab" id="chart-0">
+      <div class="container">
+        <div class="chartCard">
+          <div id="about" style="height: 80vh;">
+
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- chart 1: town average graph  -->
-    <div class="tab" id="chart-1">
+    <div class="tab hidden" id="chart-1">
       <div class="container">
         <div class="chartCard">
           <div>
