@@ -45,6 +45,13 @@ function updateFlatTypeCountV1(data, region) {
     });
 }
 
+function updatePieChartV1(pieChart){
+    popularFlatTypePieChart.updateOptions({
+        series: pieChart[0],
+        labels: pieChart[1]
+    })
+}
+
 function dropDownMeun(data) {
     for (let townName of townNameArr) {
         document.querySelector('#towns').innerHTML += '<option class="opt" value="' + townName + '">' + townName + '</option>';
@@ -150,7 +157,7 @@ window.document.addEventListener('DOMContentLoaded', async function () {
     let resaleDataOA = combineAll(resaleData1214, resaleData1516, data);
     let filteredData = await sortByTown(resaleDataOA);
     //console.log(filteredData.get("ANG MO KIO")[0]);
-    //console.log(filteredData);
+    console.log(filteredData);
     //let filteredDataByYear = groupDataByYear(filteredData);
     //console.log(filteredDataByYear);
 
@@ -206,9 +213,18 @@ window.document.addEventListener('DOMContentLoaded', async function () {
     /* chart 3: find the number of flatType in different area by year */
     //let numberFlatType = findFlatTypeCountByYear();
     let ans = regionChart(filteredData, centralRegionOne);
+    //console.log(ans);
     updateFlatTypeCountV1(ans, centralRegionOne);
     dropDownYearMenu(filteredData, newAllRegionMap);
     findSelectedRadioBtn(filteredData, newAllRegionMap);
+
+
+
+    /********************End of chart 3 ****************/
+
+    /***********chart 4: pie chart *********************/
+    let pieChart = getPiechart(filteredData, "ANG MO KIO", 2021, flatType);
+    updatePieChartV1(pieChart);
 
 });
 
@@ -217,8 +233,10 @@ window.document.addEventListener('DOMContentLoaded', async function () {
 const townChartV1 = new ApexCharts(document.querySelector('#townChartV1'), optionsV1);
 const flatTypeChart = new ApexCharts(document.querySelector('#flatTypeChart'), optionsV1);
 const popularFlatTypeChart = new ApexCharts(document.querySelector('#countFlatByLocationChart'), optionsByNumOfFlatType);
+const popularFlatTypePieChart = new ApexCharts(document.querySelector('#flatTypePieChart'), optionsPieChart);
 
 //render fucntion
 townChartV1.render();
 flatTypeChart.render();
 popularFlatTypeChart.render();
+popularFlatTypePieChart.render();

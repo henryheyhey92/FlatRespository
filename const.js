@@ -138,3 +138,18 @@ const optionsByNumOfFlatType = {
     }
 
 };
+
+const optionsPieChart = {
+    chart:{
+        type: 'donut'
+    },
+    series:[
+
+    ],
+    labels:[
+
+    ],
+    noData:{
+        text:"Loading..."
+    }
+}
