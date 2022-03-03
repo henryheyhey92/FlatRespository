@@ -66,6 +66,30 @@ function dropDownMeun(data) {
 
 }
 
+function dropDownMeunForPieChart(filteredData){
+    for(let townName of townNameArr){
+        document.querySelector('#pie-town').innerHTML +='<option class="opt-pie-town-name" value="' + townName + '">' + townName + '</option>';
+    }
+    for(let y of years){
+        document.querySelector('#pie-year').innerHTML +='<option class="opt-pie-year" value="' + y + '">' + y + '</option>';
+    }
+    let selectedTown = document.querySelector('#pie-town');
+    let selectedYear = document.querySelector('#pie-year');
+    selectedTown.addEventListener('change', function(){
+        let chosenTown = selectedTown.options[selectedTown.selectedIndex].value;
+        let chosenYear = document.querySelector('#pie-year').value;
+        let pieChart = getPiechart(filteredData, chosenTown, chosenYear);
+        updatePieChartV1(pieChart);
+    })
+
+    selectedYear.addEventListener('change', function(){
+        let chosenYear = selectedYear.options[selectedYear.selectedIndex].value;
+        let chosenTown = document.querySelector('#pie-town').value;
+        let pieChart = getPiechart(filteredData, chosenTown, chosenYear);
+        updatePieChartV1(pieChart);
+    })
+}
+
 function dropDownYearMenu(data, selectedRegion) {
     for (let y of years) {
         document.querySelector('#year').innerHTML += '<option class="optYear" value="' + y + '">' + y + '</option>';
@@ -223,8 +247,9 @@ window.document.addEventListener('DOMContentLoaded', async function () {
     /********************End of chart 3 ****************/
 
     /***********chart 4: pie chart *********************/
-    let pieChart = getPiechart(filteredData, "ANG MO KIO", 2021, flatType);
+    let pieChart = getPiechart(filteredData, "ANG MO KIO", 2021);
     updatePieChartV1(pieChart);
+    dropDownMeunForPieChart(filteredData);
 
 });
 

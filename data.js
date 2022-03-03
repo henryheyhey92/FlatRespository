@@ -242,12 +242,12 @@ function regionChart(data, selectedRegion, chosenYear){
 }
 
 
-function getPiechart(filteredData, townName, year, flatTypeArray){
+function getPiechart(filteredData, townName, year){
     let seriesArray = [];
     let labelsArray = [];
    
     let getTownData = filteredData.get(townName);
-    for(let flatType of flatTypeArray){
+    for(let ft of flatType){
         let count = 0;
         for(let i = 0; i<getTownData.length; i++){
             let getDataYear = getTownData[i].month.slice(0,4);
@@ -255,7 +255,7 @@ function getPiechart(filteredData, townName, year, flatTypeArray){
                 continue;
             }else{
                 let getDataflatType = getTownData[i].flat_type;
-                if(flatType !== getDataflatType){
+                if(ft !== getDataflatType){
                     continue;
                 }else{
                     count++;
@@ -263,7 +263,7 @@ function getPiechart(filteredData, townName, year, flatTypeArray){
             }
         }
         seriesArray.push(count);
-        labelsArray.push(flatType);
+        labelsArray.push(ft);
     }
     // let options = {
     //     series: seriesArray,
