@@ -104,13 +104,7 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-/* .testing{
-    background-color: transparent;
-    border-radius: 15px;
-    border: 3px solid rgb(105, 139, 153);
-    color: rgb(57, 131, 180);
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-} */
+
 
 
 .chartCard{
@@ -181,19 +175,25 @@
 .description-box-1 h1{
     color: #FFFFFF;
     text-shadow: 2px 1px black;
-    font-size: 3rem;
+    font-size: 1.9rem;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .description-box-1 h3 p{
     color: white;
-    font-size: 2rem;
+    font-size: 0.4rem;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin: 20px 0 10px
 }
 
-@media screen and (max-height:500) and (max-width:1000px){
-    
+@media screen and (max-width:480px){
+    .description-box-1 h1{
+        font-size: 1.5rem;
+    }
+
+    .description-box-1 h3 p{
+        font-size: 0.1rem;
+    }
 }
 
 #group{
@@ -254,29 +254,32 @@ body{
 
 
 .sec-about>P{
-    max-width: 45vw;
+    max-width: 30vw;
     margin: 2vh 2vw 2vh 2vw;
 }
 .sec-about>h1{
-    max-width: 45vw;
+    max-width: 30vw;
     margin: 2vh 2vw 2vh 2vw;
+    color: #837b7b;
+    text-shadow: 4px solid black;
 }
 .sec-about{
     margin-top: 5vh;
-    margin-right: 5vw;
-    margin-left: 5vw;
+    margin-right: 2vw;
+    margin-left: 2vw;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
     transition: 0.3s;
     padding: 5px 5px 5px 5px;
     border: 10px 10px 10px 10px;
     border-radius: 15px;
     background: linear-gradient(to right, #def3ef, #ebedfa);
-    height: 55vh;
-    min-height: 80vh;
+    height: 70vh;
+    min-height: 60vh;
 }
 
 
-@media screen and (max-width:550px) {
+
+@media screen and (max-width:690px) {
     .aboutChartCard{
         display: block;
         text-align: center;
@@ -294,8 +297,15 @@ body{
     }
 
     .sec-about>P, .sec-about>h1{
-        text-align: center;
         margin: 2vh auto;
+        max-width: 50vw;
     }
 
 }
+
+/* @media screen and (max-width:600px){
+    #chart-4{
+        overflow: hidden;
+    }
+} */
+
