@@ -173,6 +173,13 @@ window.document.addEventListener('DOMContentLoaded', async function () {
     let resaleData1214 = await loadData(CSV_YEAR_12_14);
     let newAllRegionMap = setRegionMap(allRegionMap);
 
+
+    /**********************************************
+     * Nav-bar 
+     * *******************************************/
+   
+    
+    
     /************************************************ 
      * fliter /sort data function 
      * 
