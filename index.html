@@ -16,15 +16,27 @@
 
 <body>
   <!-- nav bar -->
-  <div class="topnav" id="myTopnav">
-    <a class="active">Resale Go Where</a>
-    <a class="nav-link" href="#news">Home</a>
-    <a class="nav-link" href="#contact">Contact</a>
-    <a class="nav-link" href="#about">About</a>
-    <a class="nav-link icon" href="javascript:void(0);" onclick="myFunction()">
-      <i class="fa fa-bars"></i>
-    </a>
+  <nav class="nav-bar">
+    <div class="logo">Resale Go Where</div>
+    <div class="nav-link" id="nav-items">
+      <ul>
+        <li><a href="" class="nav-tag">Home</a></li>
+        <li><a href="" class="nav-tag">About</a></li>
+        <li><a href="" class="nav-tag">Contact</a></li>
+      </ul>
+    </div>
+    <div class="menu-icon" onclick="menuFunc()">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+  </nav>
+  <div class="nav-link-sec" id="nav-sec-items">
+    <ul>
+      <li><a href="" class="nav-tag">Home</a></li>
+      <li><a href="" class="nav-tag">About</a></li>
+      <li><a href="" class="nav-tag">Contact</a></li>
+    </ul>
   </div>
+  
 
 
   <!-- main-image -->
@@ -189,12 +201,18 @@
   </div>
 
   <script>
-    function myFunction() {
-      var x = document.getElementById("myTopnav");
-      if (x.className === "topnav") {
+    function menuFunc() {
+      let x = document.getElementById("nav-items");
+      let y = document.getElementById("nav-sec-items");
+      if (x.className === "nav-link") {
         x.className += " responsive";
       } else {
-        x.className = "topnav";
+        x.className = "nav-link";
+      }
+      if(y.className === "nav-link-sec"){
+        y.className += " responsive";
+      }else{
+        y.className = "nav-link-sec";
       }
     }
   </script>
