@@ -52,6 +52,31 @@ function updatePieChartV1(pieChart){
     })
 }
 
+function updateProgressChart(data){
+    progressChart.updateOptions({
+        series:[data]
+    })
+}
+
+function updateProgressChartV2(data){
+    progressChartSec.updateOptions({
+        series:[data],
+        labels: ["Resale flat price increase"],
+        dataLabels: {
+            name: {
+              offsetY: -10,
+              color: "#808080",
+              fontSize: "9px"
+            },
+            value: {
+              color: "#fff",
+              fontSize: "20px",
+              show: true
+            }
+          }
+    })
+}
+
 function dropDownMeun(data) {
     for (let townName of townNameArr) {
         document.querySelector('#towns').innerHTML += '<option class="opt" value="' + townName + '">' + townName + '</option>';
@@ -172,14 +197,28 @@ window.document.addEventListener('DOMContentLoaded', async function () {
     let resaleData1516 = await loadData(CSV_YEAR_15_16);
     let resaleData1214 = await loadData(CSV_YEAR_12_14);
     let newAllRegionMap = setRegionMap(allRegionMap);
-
+    let pageBtn = document.querySelector('.page0-btn');
+    pageBtn.style.color = "rgb(57, 131, 180)";
+    pageBtn.style.border = "3px solid rgb(105, 139, 153)";
+    pageBtn.addEventListener('click', function(){
+        if(pageBtn.className === "page0-btn"){
+            pageBtn.className += " change";
+        }else{
+            pageBtn.className = "page0-btn"
+        }
+    })
 
     /**********************************************
      * Nav-bar 
      * *******************************************/
    
     
-    
+    /********************************************
+     * progress bar 
+     ********************************************/
+    updateProgressChart(50);
+    updateProgressChartV2(12.7);
+
     /************************************************ 
      * fliter /sort data function 
      * 
@@ -262,12 +301,19 @@ window.document.addEventListener('DOMContentLoaded', async function () {
 
 
 //const to create instance of ApexCharts
+const progressChart = new ApexCharts(document.querySelector('#progressBarOne'), optionsProgressChartV1);
+const progressChartSec = new ApexCharts(document.querySelector('#progressBarSec'), optionsProgressChartV1);
+progressChart.render();
+progressChartSec.render();
+
+
 const townChartV1 = new ApexCharts(document.querySelector('#townChartV1'), optionsV1);
 const flatTypeChart = new ApexCharts(document.querySelector('#flatTypeChart'), optionsV1);
 const popularFlatTypeChart = new ApexCharts(document.querySelector('#countFlatByLocationChart'), optionsByNumOfFlatType);
 const popularFlatTypePieChart = new ApexCharts(document.querySelector('#flatTypePieChart'), optionsPieChart);
-
 //render fucntion
+
+
 townChartV1.render();
 flatTypeChart.render();
 popularFlatTypeChart.render();
