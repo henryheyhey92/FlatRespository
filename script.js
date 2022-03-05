@@ -2,7 +2,7 @@ function updateTownChartFuncV1(data) {
     townChartV1.updateSeries(data);
     townChartV1.updateOptions({
         title: {
-            text: "Average transacted resale flat price by town"
+            text: "Average resale flat price"
         },
         tooltip: {
             y: {
@@ -19,7 +19,7 @@ function updateTownChartByFlatTypeV1(data) {
     flatTypeChart.updateSeries(data);
     flatTypeChart.updateOptions({
         title: {
-            text: "Average Resale flat price base on flat type"
+            text: "Average price base on flat type"
         },
         tooltip: {
             y: {
@@ -40,7 +40,7 @@ function updateFlatTypeCountV1(data, region) {
     });
     popularFlatTypeChart.updateOptions({
         title: {
-            text: "Number of resale flats transacted by region in year 2019"
+            text: "Number flat transacted in 2019"
         }
     });
 }

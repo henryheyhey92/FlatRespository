@@ -54,7 +54,7 @@ const optionsV1 = {
         curve:'smooth'
     },
     legend: {
-        position: 'top',
+        position: 'bottom',
         horizontalAlign: 'center',
         floating: true,
         offsetY: 0,
