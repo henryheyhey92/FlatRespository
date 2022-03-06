@@ -129,16 +129,37 @@ function dropDownYearMenu(data, selectedRegion) {
 function findSelectedRadioBtn(data, allRegionMap) {
     let sr = centralRegionOne;
     let name = null;
-    //console.log(allRegionMap);
+
+    for (let y of years) {
+        document.querySelector('#year').innerHTML += '<option class="optYear" value="' + y + '">' + y + '</option>';
+    }
+    let selectedYear = document.querySelector('#year');
+    selectedYear.addEventListener('change', function(){
+        let chosenYear = selectedYear.options[selectedYear.selectedIndex].value;
+        let chosenTown = document.querySelectorAll('input[name="region"]');
+        for(let ct of chosenTown){
+            if(ct.checked === true){
+                chosenTown = ct.value;
+            }
+        }
+        console.log(chosenTown);
+        console.log(chosenYear);
+        sr = allRegionMap.get(chosenTown);
+        console.log(sr)
+        let getChart = regionChart(data, sr, parseInt(chosenYear));
+        updateFlatTypeCountV1(getChart, sr);
+    })
+
+
     document.querySelectorAll('input[name="region"]').forEach((elem) => {
         elem.addEventListener('change', function (event) {
             name = event.target.value;
 
             sr = allRegionMap.get(name); //to get the region array 
 
-            let selectedYear = document.querySelector('#year');
-            let chosenYear = selectedYear.options[selectedYear.selectedIndex].value;
-            let getChart = regionChart(data, sr, parseInt(chosenYear));
+            let selectedYear = document.querySelector('#year').value;
+            console.log("when raido :"+selectedYear);
+            let getChart = regionChart(data, sr, parseInt(selectedYear));
             updateFlatTypeCountV1(getChart, sr);
         })
 
@@ -207,6 +228,59 @@ window.document.addEventListener('DOMContentLoaded', async function () {
             pageBtn.className = "page0-btn"
         }
     })
+    /******************************************
+     * form validation 
+     ******************************************/
+    let formBtn = document.querySelector('#form-btn');
+    formBtn.addEventListener('click', function(){
+        let nameNotGiven = false;
+        let nameShort = false;
+        let nameIsNumber = false;
+        let emailNotValid = false;
+        let errorDiv = document.querySelector('#errors');
+        errorDiv.style.display = 'none';
+
+        let formName = document.querySelector('#name').value;
+        if(!formName){
+            nameNotGiven = true;
+        }else if(formName.length < 3){
+            nameShort = true;
+        }
+
+        if(/\d+$/.test(formName)){
+            nameIsNumber = true;
+        }
+
+        let formEmail = document.querySelector('#email').value;
+        if(!formEmail.includes('.') || !formEmail.includes('@')){
+            emailNotValid = true;
+        }
+
+        if(nameNotGiven || nameShort || nameIsNumber || emailNotValid){
+            errorDiv.innerHTML = '';
+            errorDiv.style.display = "block";
+            if(nameNotGiven){
+                errorDiv.innerHTML += `<p>Please provide name</p>`;
+            }
+
+            if(nameShort){
+                errorDiv.innerHTML += `<p>Enter name length too short</p>`;
+            }
+
+            if(nameIsNumber){
+                errorDiv.innerHTML += `<p>The input name should not contain number</p>`
+            }
+
+            if(emailNotValid){
+                errorDiv.innerHTML += `<p>Your email should contains at least one . and at least one @</p>`
+            }
+        }else{
+            errorDiv.style.display = 'none';
+            alert("request for news letter submitted successfully");
+        }
+    })
+
+
 
     /**********************************************
      * Nav-bar 
@@ -228,8 +302,7 @@ window.document.addEventListener('DOMContentLoaded', async function () {
     let filteredData = await sortByTown(resaleDataOA);
     //console.log(filteredData.get("ANG MO KIO")[0]);
     console.log(filteredData);
-    //let filteredDataByYear = groupDataByYear(filteredData);
-    //console.log(filteredDataByYear);
+    
 
     /*************************************************
      * page tab
@@ -260,7 +333,6 @@ window.document.addEventListener('DOMContentLoaded', async function () {
      ***********************************************/
     /*chart 1: find average resale flat pricing by location */
     let priceByLocation = findByTown(resaleDataOA, centralRegionOne);
-    //console.log(priceByLocation)
     updateTownChartFuncV1(priceByLocation);
     radiofunc(resaleDataOA, allRegionMap);
 
@@ -273,7 +345,6 @@ window.document.addEventListener('DOMContentLoaded', async function () {
     /* chart 2: find by different flat type avg price*/
     let popularFlatType = findByFlatType(filteredData, baseCaseLocation);
     dropDownMeun(filteredData);
-    //console.log(popularFlatType);
     updateTownChartByFlatTypeV1(popularFlatType);
 
     /********************End of chart 2***************/
@@ -282,10 +353,10 @@ window.document.addEventListener('DOMContentLoaded', async function () {
 
     /* chart 3: find the number of flatType in different area by year */
     //let numberFlatType = findFlatTypeCountByYear();
-    let ans = regionChart(filteredData, centralRegionOne);
+    let ans = regionChart(filteredData, centralRegionOne, 2012);
     //console.log(ans);
     updateFlatTypeCountV1(ans, centralRegionOne);
-    dropDownYearMenu(filteredData, newAllRegionMap);
+    //dropDownYearMenu(filteredData, newAllRegionMap);
     findSelectedRadioBtn(filteredData, newAllRegionMap);
 
 

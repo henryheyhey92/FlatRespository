@@ -224,7 +224,7 @@ function regionChart(data, selectedRegion, chosenYear){
                     continue;
                 }
 
-                if(parseInt(curr) !== 2012){
+                if(parseInt(curr) !== chosenYear){
                     continue;
                 }else{
                     count++
