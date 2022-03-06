@@ -8,9 +8,9 @@
 ## Project Summary
 
 **Project Context**
-```
+
 Resale Go Where is a website developed to provide users with information to see the average price of resale flat in Singapore. The web application consist of charts that depicts the average transacted resale flat price trend from 2012 to 2022 feb, the least to most expensive flat type in individual town and number of different flat type transacted each year.
-```
+
 **Organization Goals**
 
 The web app objective is to provide pricing information and the number of transacted flat type in each town to user/couples who would like to purchase resale flat instead of BTO.
@@ -29,7 +29,7 @@ _Orgranisation_
 * objective: Provide a data visualiation on the past year average resale flat pricing 
 
 _User_
-*Objective: To get the insight on the past year resale flat price and trend, so that user can know which location has the highest resale value.
+* Objective: To get the insight on the past year resale flat price and trend, so that user can know which location has the highest resale value.
 
 **UX/UI**
 
@@ -37,11 +37,8 @@ _User_
 
 User stories | Acceptance Criteria
 -------------|--------------------
-
-As a user, I want to know the past 10 years average resale flat price | feature that display a line graph that enable user to review past 10 years average resale flat price
-
+As a user, I want to know the past 10 years average resale flat price | feature that display a line graph that enable user to review past 10 years average resale flat price.
 As a user, I want to see the average reslae flat price by town region so that I can compare price between different town that is with in the same region | feature that will sort towns by region and only display the average resale flat price line graph by region when a particular region is selected.  
-
 As a user, I want to see the price of different flat type in particular town | feature that will display line graph of different flat types of the average resale flat pricing in a particular town.
 
 ### **Scope**
