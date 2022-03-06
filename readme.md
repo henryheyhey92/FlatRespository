@@ -60,11 +60,21 @@ _Non-functional:_
     <!-- <img src='images/mobile_view.jpg'> -->
 </div>
 
-_Interaction design_
+1. The Resale Go where is using a tree hierarchy.
 
-1. 
+2. When the user first load in the application, they will see the about main page. There is a guide for user to click on each chart to view different set of charts 
+
+3. The nav-bar contents link to the homepage and developer github page 
+
+4. when user click the chart button in the about main page, a swap in animation would occur and change to the respective chart that the user have selected.
+
+5. when user click on the radio button of in the chart page, the web application will search and sort the past year dataset base on the selected criteria, and output the respective base on the selected criteria
+
+
+6. when user click on the dropdown and selected the a particular year, the web application will search and sort the past year dataset by the current selected year and current town/region, and output the result base on the selected criteria
 
 ### **Skeleton**
+
 
 
 
