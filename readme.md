@@ -75,12 +75,36 @@ _Non-functional:_
 
 ### **Skeleton**
 
+**Main page (Web)**
+<div class="image" style="display: inline-block;">
+    <img src='moreReadMeImages/web-view.jpg'>
+</div>
 
+**mobile view page**
+
+<div class="image" style="display: inline-block;">
+    <img src='moreReadMeImages/mobile-view.jpg'>
+</div>
 
 
 ### **Surface**
 
+_color_
+1. For colour used in the webpage, the body of the page uses the linear-gradient(to right, #def3ef, #ebedfa); 
+<div class="image" style="display: inline-block;">
+    <img src='moreReadMeImages/background-color.png'>
+</div>
 
+2. For the front page image, background also uses a mixture of blue and light green to blend in with the background color of the application
+
+_Font choice_
+
+3. For font use for logo and the content uses Helvetica. The decision behind using Helvetica is because this font is consider one of the most easy to read.
+
+
+_Icon_
+
+4. The only icon used in the page is menu icon for the nav bar. The intented web design is to have least amount of icons, and the reason behind is to keep the web page clean and simple.  
 
 ### ***Features**
 
