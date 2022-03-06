@@ -131,7 +131,7 @@
     margin-top: 2vh;
     margin-bottom:5vh;
     border-radius: 15px;
-    margin: 2vh 5vw 5vh 5vw;
+    margin: 2vh 5vw 5px 5vw;
     background: white;
     z-index: 1;
 }
@@ -145,16 +145,16 @@
     background: white;
     z-index: 1;
     display: flex;
+    height: 680px;
+    max-height: 1000px;
 }
 
 .card{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
     transition: 0.3s;
     padding: 5px 5px 5px 5px;
-    border: 10px 10px 10px 10px;
-    height: 10vh;
-    margin-top: 2vh;
-    margin-bottom:5vh;
+    border: 5px 5px 5px 5px;
+    height: 5vh;
     margin: 2vh 3vw 2vh 3vw;
 }
 
@@ -169,7 +169,8 @@
 
 #main-image{
     max-width: 100%;
-    height: 50vh;
+    height: 400px;
+    max-height: 600px;
     background-color: palegoldenrod;
     background-image: url(images/house_one.png);
     background-size: cover;
@@ -222,7 +223,7 @@
 body{
   background: linear-gradient(to right, #def3ef, #ebedfa); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   max-height: 900px;
-  max-width: 1000px;
+  max-width: 100%;
 }
 
 #all-tab{
@@ -275,8 +276,9 @@ body{
 }
 
 .summary{
+    height: 200px;
     max-width: 35vw;
-    min-height: 20vh;
+   
     border-radius: 25px;
     margin: 10px 0 5px 0;
 }
@@ -284,7 +286,7 @@ body{
 
 .sec-about>P{
     max-width: 30vw;
-    margin: 2vh 2vw 2vh 2vw;
+    margin: 3px 3px 3px 3px;
 }
 .sec-about>h1{
     max-width: 30vw;
@@ -296,14 +298,15 @@ body{
     margin-top: 5vh;
     margin-right: 2vw;
     margin-left: 2vw;
+    margin-bottom: 3vh;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
     transition: 0.3s;
     padding: 5px 5px 5px 5px;
     border: 10px 10px 10px 10px;
     border-radius: 15px;
     background: linear-gradient(to right, #def3ef, #ebedfa);
-    height: 70vh;
-    min-height: 60vh;
+    /* min-height: 60vh; */
+    max-height: 650px;
 }
 
 
@@ -319,11 +322,14 @@ body{
         margin: 2vh 5vw 5vh 5vw;
         background: white;
         z-index: 1;
+        max-height: 1000px;
+
     }
     p.summary{
         text-align: center;
         margin: auto;
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        height: 250px;
     }
 
     .sec-about>P, .sec-about>h1{

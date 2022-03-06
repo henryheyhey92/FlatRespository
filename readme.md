@@ -31,7 +31,7 @@ _Orgranisation_
 _User_
 * Objective: To get the insight on the past year resale flat price and trend, so that user can know which location has the highest resale value.
 
-**UX/UI**
+## UX/UI
 
 ### **Strategy**
 
@@ -55,9 +55,14 @@ _Non-functional:_
 
 
 ### **Structure**
-do a powerpoint slides
+<div class="image" style="display: inline-block;">
+    <img src='images/structure.png'>
+    <!-- <img src='images/mobile_view.jpg'> -->
+</div>
 
+_Interaction design_
 
+1. 
 
 ### **Skeleton**
 
