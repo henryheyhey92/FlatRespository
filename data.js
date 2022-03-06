@@ -206,7 +206,6 @@ function groupDataByYear(townData)
 
 function regionChart(data, selectedRegion, chosenYear){
     let objData = [];
-    let year = 2012;
     if(chosenYear !== undefined || chosenYear !== null){
         year = parseInt(chosenYear);
     }
