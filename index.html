@@ -101,27 +101,25 @@
 
         </div>
       </div>
-        <div class="chartCard">
-          <div>
-            <div id="townChartV1" style="height: 80vh;">
-            </div>
+      <div class="chartCard">
+        <div>
+          <div id="townChartV1" style="height: 80vh;">
           </div>
         </div>
+      </div>
     </div>
 
 
     <!-- chart 2: flat type average graph -->
     <div class="tab hidden" id="chart-2">
-      <div class="container">
-        <div class="chartCard">
-          <div>
-            <div id="flatTypeChart" style="height: 80vh;">
-            </div>
+      <div class="card">
+        <label for="town">Choose town :</label>
+        <select name="town" id="towns">Choose</select>
+      </div>
+      <div class="chartCard">
+        <div>
+          <div id="flatTypeChart" style="height: 80vh;">
           </div>
-        </div>
-        <div class="card">
-          <label for="town">Choose town :</label>
-          <select name="town" id="towns">Choose</select>
         </div>
       </div>
     </div>
@@ -185,24 +183,26 @@
     </div>
 
     <div class="tab hidden" id="chart-4">
-      <div class="container">
-        <div class="chartCard">
+      <!-- <div class="container"> -->
+        <div class="chart4-card">
           <div>
-            <div id="flatTypePieChart" style="height: 80vh;">
-            </div>
+            <label for="pie-town">Choose town :</label>
+            <select name="pie-towns" id="pie-town">Choose</select>
           </div>
-        </div>
-        <div class="card">
-          <label for="pie-town">Choose town :</label>
-          <select name="pie-towns" id="pie-town">Choose</select>
-
           <div>
             <label for="pie-year">Choose Year :</label>
             <select name="pie-years" id="pie-year">Choose</select>
           </div>
         </div>
 
-      </div>
+        <div class="chartCard">
+          <div>
+            <div id="flatTypePieChart" style="height: 80vh;">
+            </div>
+          </div>
+        </div>
+
+      <!-- </div> -->
     </div>
 
 

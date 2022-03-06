@@ -152,9 +152,10 @@
     transition: 0.3s;
     padding: 5px 5px 5px 5px;
     border: 10px 10px 10px 10px;
-    height: 15vh;
+    height: 10vh;
     margin-top: 2vh;
     margin-bottom:5vh;
+    margin: 2vh 3vw 2vh 3vw;
 }
 
 .card:hover{
@@ -202,13 +203,13 @@
     margin: 20px 0 10px
 }
 
-@media screen and (max-width:480px) and (max-height:555px){
+@media screen and (max-width:480px), screen and (max-height:555px){
     .description-box-1 h1{
-        font-size: 14px;
+        font-size: 20px;
     }
 
     .description-box-1 h3 p{
-        font-size: 0.1rem;
+        font-size: 12px;
     }
 }
 
@@ -221,7 +222,7 @@
 body{
   background: linear-gradient(to right, #def3ef, #ebedfa); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   max-height: 900px;
-  max-width: 1300px;
+  max-width: 1000px;
 }
 
 #all-tab{
@@ -353,3 +354,28 @@ body{
     }
 } */
 
+.chart4-card{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+    transition: 0.3s;
+    padding: 5px 5px 5px 5px;
+    border: 10px 10px 10px 10px;
+    height: 10vh;
+    margin: 2vh 3vw 2vh 3vw;
+    background: white;
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+@media screen and (max-width:440), screen and (max-height: 500) {
+    .chart4-card{
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+        background: white;
+        transition: 0.3s;
+        padding: 5px 5px 5px 5px;
+        border: 10px 10px 10px 10px;
+        height: 30vh;
+        margin: 2vh 3vw 2vh 3vw;
+    }
+}

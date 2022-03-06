@@ -54,7 +54,7 @@ const optionsV1 = {
         curve:'smooth'
     },
     legend: {
-        position: 'bottom',
+        position: 'top',
         horizontalAlign: 'center',
         floating: true,
         offsetY: 0,
@@ -141,14 +141,37 @@ const optionsByNumOfFlatType = {
 
 const optionsPieChart = {
     chart:{
-        type: 'donut'
+        type: 'donut',
+        height:'300',
+        width: '300',
+        offsetX: 10,
+        offsetY: 0,
+        horizontalAlign: 'center'
     },
     series:[
 
     ],
     labels:[
 
-    ],
+    ],legend: {
+        position: 'bottom',
+        horizontalAlign: 'center',
+        floating: true,
+        offsetY: 0,
+        offsetX: 0
+      },
+      responsive: [{
+        breakpoint: 400,
+        options: {
+          chart: {
+            width: 200,
+            height: 200
+          },
+          legend: {
+            position: 'bottom'
+          }
+        }
+      }],
     noData:{
         text:"Loading..."
     }
