@@ -142,9 +142,9 @@ const optionsByNumOfFlatType = {
 const optionsPieChart = {
     chart:{
         type: 'donut',
-        height:'300',
-        width: '300',
-        offsetX: 10,
+        height:'800',
+        width: '800',
+        offsetX: 0,
         offsetY: 0,
         horizontalAlign: 'center'
     },
@@ -154,21 +154,131 @@ const optionsPieChart = {
     labels:[
 
     ],legend: {
-        position: 'bottom',
+        // position: 'bottom',
         horizontalAlign: 'center',
-        floating: true,
+        floating: false,
         offsetY: 0,
-        offsetX: 0
+        offsetX: 0,
+        fontSize: '13px',
+        show: true
       },
       responsive: [{
-        breakpoint: 400,
+        breakpoint: 440,
         options: {
           chart: {
-            width: 200,
-            height: 200
+            width: '340',
+            height: '340',
+            horizontalAlign: 'center'
           },
           legend: {
-            position: 'bottom'
+            position: 'bottom',
+            floating: false,
+            offsetY: 0,
+            offsetX: 0,
+            fontSize: '8px',
+            show: true
+          }
+        }
+      },{
+        breakpoint: 500,
+        options: {
+          chart: {
+            width: '420',
+            height: '420',
+            horizontalAlign: 'center'
+          },
+          legend: {
+            position: 'bottom',
+            floating: false,
+            offsetY: 0,
+            offsetX: 0,
+            fontSize: '10px',
+            show: true
+          }
+        }
+      }, 
+      {
+        breakpoint: 600,
+        options: {
+          chart: {
+            width: '450',
+            height: '450',
+            horizontalAlign: 'center'
+          },
+          legend: {
+            floating: false,
+            offsetY: 0,
+            offsetX: 0,
+            fontSize: '12px',
+            show: true
+          }
+        }
+      }, 
+      {
+        breakpoint: 700,
+        options: {
+          chart: {
+            width: '550',
+            height: '550',
+            horizontalAlign: 'center'
+          },
+          legend: {
+            floating: false,
+            offsetY: 0,
+            offsetX: 0,
+            fontSize: '12px',
+            show: true
+          }
+        }
+      },
+      {
+        breakpoint: 800,
+        options: {
+          chart: {
+            width: '650',
+            height: '650',
+            horizontalAlign: 'center'
+          },
+          legend: {
+            floating: false,
+            offsetY: 0,
+            offsetX: 0,
+            fontSize: '13px',
+            show: true
+          }
+        }
+      },
+      {
+        breakpoint: 900,
+        options: {
+          chart: {
+            width: '750',
+            height: '750',
+            horizontalAlign: 'center'
+          },
+          legend: {
+            floating: false,
+            offsetY: 0,
+            offsetX: 0,
+            fontSize: '13px',
+            show: true
+          }
+        }
+      },
+      {
+        breakpoint: 1000,
+        options: {
+          chart: {
+            width: '800',
+            height: '800',
+            horizontalAlign: 'center'
+          },
+          legend: {
+            floating: false,
+            offsetY: 0,
+            offsetX: 0,
+            fontSize: '13px',
+            show: true
           }
         }
       }],

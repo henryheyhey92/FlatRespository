@@ -371,7 +371,7 @@ body{
     border-radius: 20px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 @media screen and (max-width:440), screen and (max-height: 500) {
@@ -384,4 +384,20 @@ body{
         height: 30vh;
         margin: 2vh 3vw 2vh 3vw;
     }
+}
+
+.chart3-card{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+    transition: 0.3s;
+    padding: 5px 5px 5px 5px;
+    border: 5px 5px 5px 5px;
+    border-radius: 25px;
+    height: 15vh;
+    margin: 2vh 3vw 2vh 3vw;
+    background-color: #FFFFFF;
+}
+
+.radioBtnReigon{
+    display: flex;
+    flex-wrap: wrap;
 }

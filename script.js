@@ -45,10 +45,19 @@ function updateFlatTypeCountV1(data, region) {
     });
 }
 
-function updatePieChartV1(pieChart){
+function updatePieChartV1(pieChart, location){
     popularFlatTypePieChart.updateOptions({
         series: pieChart[0],
-        labels: pieChart[1]
+        labels: pieChart[1],
+        title:{
+            text: location,
+            margin: 0,
+            offsetX: 0,
+            offsetY: 0,
+            style:{
+                fontSize: '10px'
+            }
+        }
     })
 }
 
@@ -104,14 +113,14 @@ function dropDownMeunForPieChart(filteredData){
         let chosenTown = selectedTown.options[selectedTown.selectedIndex].value;
         let chosenYear = document.querySelector('#pie-year').value;
         let pieChart = getPiechart(filteredData, chosenTown, chosenYear);
-        updatePieChartV1(pieChart);
+        updatePieChartV1(pieChart, chosenTown);
     })
 
     selectedYear.addEventListener('change', function(){
         let chosenYear = selectedYear.options[selectedYear.selectedIndex].value;
         let chosenTown = document.querySelector('#pie-town').value;
         let pieChart = getPiechart(filteredData, chosenTown, chosenYear);
-        updatePieChartV1(pieChart);
+        updatePieChartV1(pieChart, chosenTown);
     })
 }
 
@@ -364,8 +373,8 @@ window.document.addEventListener('DOMContentLoaded', async function () {
     /********************End of chart 3 ****************/
 
     /***********chart 4: pie chart *********************/
-    let pieChart = getPiechart(filteredData, "ANG MO KIO", 2021);
-    updatePieChartV1(pieChart);
+    let pieChart = getPiechart(filteredData, baseCaseLocation, 2021);
+    updatePieChartV1(pieChart, baseCaseLocation);
     dropDownMeunForPieChart(filteredData);
 
 });

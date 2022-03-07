@@ -142,17 +142,7 @@
 
     <!-- chart 3: count the number of flat type in region -->
     <div class="tab hidden" id="chart-3">
-      <div class="container">
-        <div class="chartCard">
-          <div class="subsitube">
-            <div id="countFlatByLocationChart" style="height: 80vh;">
-
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="container">
-        <div class="card">
+        <div class="chart3-card">
           <label for="region">Choose region :</label>
           <div class="radioBtnReigon">
             <div>
@@ -188,14 +178,21 @@
               <input class="radio-btn" id="westRegionTwo" type="radio" name="region" value="westRegionTwo">
               <label for="west">West-2</label>
             </div>
-          </div>
 
-          <div>
-            <label for="year">Choose Year :</label>
-            <select name="years" id="year">Choose</select>
+            <div>
+              <label for="year">Choose Year :</label>
+              <select name="years" id="year">Choose</select>
+            </div>
           </div>
         </div>
-      </div>
+
+        <div class="chartCard">
+          <div class="subsitube">
+            <div id="countFlatByLocationChart" style="height: 80vh;">
+
+            </div>
+          </div>
+        </div>
     </div>
 
     <div class="tab hidden" id="chart-4">
@@ -213,7 +210,7 @@
 
         <div class="chartCard">
           <div>
-            <div id="flatTypePieChart" style="height: 80vh;">
+            <div id="flatTypePieChart" style="min-height: 50vh;">
             </div>
           </div>
         </div>
