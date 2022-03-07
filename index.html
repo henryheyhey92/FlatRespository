@@ -23,9 +23,9 @@
     <div class="logo">Resale Go Where</div>
     <div class="nav-link" id="nav-items">
       <ul>
-        <li><a href="" class="nav-tag">Home</a></li>
-        <li><a href="" class="nav-tag">About</a></li>
-        <li><a href="" class="nav-tag">Contact</a></li>
+        <li><a href="#main-image" class="nav-tag">Home</a></li>
+        <li><a href="#about" class="nav-tag">About</a></li>
+        <li><a href="https://github.com/henryheyhey92/FlatRespository" class="nav-tag">Github Page</a></li>
       </ul>
     </div>
     <div class="menu-icon" onclick="menuFunc()">
@@ -34,9 +34,9 @@
   </nav>
   <div class="nav-link-sec" id="nav-sec-items">
     <ul>
-      <li><a href="" class="nav-tag">Home</a></li>
-      <li><a href="" class="nav-tag">About</a></li>
-      <li><a href="" class="nav-tag">Contact</a></li>
+      <li><a href="#main-image" class="nav-tag">Home</a></li>
+      <li><a href="#about" class="nav-tag">About</a></li>
+      <li><a href="https://github.com/henryheyhey92/FlatRespository" class="nav-tag">Github Page</a></li>
     </ul>
   </div>
 
@@ -71,7 +71,7 @@
         <div class="about">
 
           <img src="images/about-hdb.jpg" alt="HDB" class="about-img" />
-          <p class="summary">SINGAPORE: The Government is watching the progress of Build-to-Order (BTO) projects very
+          <p class="summary"><strong>Singapore:</strong> The Government is watching the progress of Build-to-Order (BTO) projects very
             closely, and has leaned forward to ensure that projects are completed
             as planned or with as little delay as possible.
             In 2021, about 14,500 HDB flats were delivered.
@@ -85,30 +85,32 @@
 
         <div class="sec-about">
           <h1>User Guide:</h1>
-          <p>The purpose of this website is to provide user information on the average resale flat price, price of
-            different types of flats and which are the most popular flat type in specific town</p>
-          <p>Click the above button to checkout charts</p>
-          <p>Chart 1: The average price of hdb in different twon region from year 2012 to 2022</p>
-          <p>Chart 2: The average price of different flat type in specific town location</p>
-          <p>Chart 3: The number of transacted flat type sorted by year and town location</p>
+          <p class="guide">Provide user <strong>information</strong> on the average resale flat price, price of
+            different types of flats and the most popular flat type</p>
+          <br>
+          <p><strong>Click</strong> the above button to checkout charts</p>
+          <p><strong>Chart 1:</strong>The average price of hdb in different twon region from year 2012 to 2022</p>
+          <p><strong>Chart 2:</strong> The average price of different flat type in specific town location</p>
+          <p><strong>Chart 3:</strong> The number of transacted flat type sorted by year and region</p>
+          <p><strong>Chart 4:</strong> The percentage of transacted flat type sorted by year and town location</p>
         </div>
-      </div>
 
-      <!-- validation form -->
-      <div class="container">
-        <div class="alert alert-danger" style="display: none;" id="errors"></div>
-        <div>Please input following details to subscribe to our news letter</div>
-        <div>
-          <label>Full Name</label>
-          <input type="text" class="form-control" id="name">
-        </div>
-        <div>
-          <label>Email</label>
-          <input type="text" class="form-control" id="email">
-        </div>
-        <button class="btn btn-primary mt-3" id="form-btn">Submit</button>
+        <!-- validation form -->
+          <div class="validation-form">
+            <div class="alert alert-danger" style="display: none;" id="errors"></div>
+          <div>Input following details to subscribe to our <strong>news letter</strong></div>
+          <div>
+            <label>Full Name</label>
+            <input type="text" class="form-control" id="name">
+          </div>
+          <div>
+            <label>Email</label>
+            <input type="text" class="form-control" id="email">
+          </div>
+          <button class="btn btn-primary mt-3" id="form-btn">Submit</button>
+          </div>
       </div>
-
+      
     </div>
     <!-- chart 1: town average graph  -->
     <div class="tab hidden" id="chart-1">
@@ -142,84 +144,85 @@
 
     <!-- chart 3: count the number of flat type in region -->
     <div class="tab hidden" id="chart-3">
-        <div class="chart3-card">
-          <label for="region">Choose region :</label>
-          <div class="radioBtnReigon">
-            <div>
-              <input class="radio-btn" id="centralRegionOne" type="radio" name="region" value="centralRegionOne"
-                checked>
-              <label for="central">Central-1</label>
-            </div>
-            <div>
-              <input class="radio-btn" id="centralRegionTwo" type="radio" name="region" value="centralRegionTwo">
-              <label for="central">Central-2</label>
-            </div>
-            <div>
-              <input class="radio-btn" id="eastRegion" type="radio" name="region" value="eastRegion">
-              <label for="east">East</label>
-            </div>
-            <div>
-              <input class="radio-btn" id="northRegionOne" type="radio" name="region" value="northRegionOne">
-              <label for="north">North-1</label>
-            </div>
-            <div>
-              <input class="radio-btn" id="northRegionTwo" type="radio" name="region" value="northRegionTwo">
-              <label for="north">North-2</label>
-            </div>
-            <div>
-              <input class="radio-btn" id="southRegion" type="radio" name="region" value="southRegion">
-              <label for="south">South</label>
-            </div>
-            <div>
-              <input class="radio-btn" id="westRegionOne" type="radio" name="region" value="westRegionOne">
-              <label for="west">West-1</label>
-            </div>
-            <div>
-              <input class="radio-btn" id="westRegionTwo" type="radio" name="region" value="westRegionTwo">
-              <label for="west">West-2</label>
-            </div>
+      <div class="chart3-card">
+        <label for="region">Choose region :</label>
+        <div class="radioBtnReigon">
+          <div>
+            <input class="radio-btn" id="centralRegionOne" type="radio" name="region" value="centralRegionOne" checked>
+            <label for="central">Central-1</label>
+          </div>
+          <div>
+            <input class="radio-btn" id="centralRegionTwo" type="radio" name="region" value="centralRegionTwo">
+            <label for="central">Central-2</label>
+          </div>
+          <div>
+            <input class="radio-btn" id="eastRegion" type="radio" name="region" value="eastRegion">
+            <label for="east">East</label>
+          </div>
+          <div>
+            <input class="radio-btn" id="northRegionOne" type="radio" name="region" value="northRegionOne">
+            <label for="north">North-1</label>
+          </div>
+          <div>
+            <input class="radio-btn" id="northRegionTwo" type="radio" name="region" value="northRegionTwo">
+            <label for="north">North-2</label>
+          </div>
+          <div>
+            <input class="radio-btn" id="southRegion" type="radio" name="region" value="southRegion">
+            <label for="south">South</label>
+          </div>
+          <div>
+            <input class="radio-btn" id="westRegionOne" type="radio" name="region" value="westRegionOne">
+            <label for="west">West-1</label>
+          </div>
+          <div>
+            <input class="radio-btn" id="westRegionTwo" type="radio" name="region" value="westRegionTwo">
+            <label for="west">West-2</label>
+          </div>
 
-            <div>
-              <label for="year">Choose Year :</label>
-              <select name="years" id="year">Choose</select>
-            </div>
+          <div>
+            <label for="year">Choose Year :</label>
+            <select name="years" id="year">Choose</select>
           </div>
         </div>
+      </div>
 
-        <div class="chartCard">
-          <div class="subsitube">
-            <div id="countFlatByLocationChart" style="height: 80vh;">
+      <div class="chartCard">
+        <div class="subsitube">
+          <div id="countFlatByLocationChart" style="height: 80vh;">
 
-            </div>
           </div>
         </div>
+      </div>
     </div>
 
     <div class="tab hidden" id="chart-4">
       <!-- <div class="container"> -->
-        <div class="chart4-card">
-          <div>
-            <label for="pie-town">Choose town :</label>
-            <select name="pie-towns" id="pie-town">Choose</select>
-          </div>
-          <div>
-            <label for="pie-year">Choose Year :</label>
-            <select name="pie-years" id="pie-year">Choose</select>
-          </div>
+      <div class="chart4-card">
+        <div>
+          <label for="pie-town">Choose town :</label>
+          <select name="pie-towns" id="pie-town">Choose</select>
         </div>
+        <div>
+          <label for="pie-year">Choose Year :</label>
+          <select name="pie-years" id="pie-year">Choose</select>
+        </div>
+      </div>
 
-        <div class="chartCard">
-          <div>
-            <div id="flatTypePieChart" style="min-height: 50vh;">
-            </div>
+      <div class="chartCard">
+        <div>
+          <div id="flatTypePieChart" style="min-height: 50vh;">
           </div>
         </div>
+      </div>
 
       <!-- </div> -->
     </div>
 
 
   </div>
+
+  
 
   <script>
     function menuFunc() {

@@ -10,7 +10,54 @@ function updateTownChartFuncV1(data) {
                     return "$ " + val / 1000 + " K"
                 }
             }
-        }
+        },
+        chart:{
+            height: 450
+        },
+        responsive: [{
+            breakpoint: 500,
+            options: {
+              chart:{
+                height: '500',
+                horizontalAlign: 'center'
+              },
+              legend: {
+                position: 'bottom',
+                floating: false,
+                offsetY: 0,
+                offsetX: 0,
+                fontSize: '10px',
+                show: true
+              },
+              title:{
+                  style:{
+                    fontSize: '10px'
+                  }
+              }
+            }
+          },
+          {
+            breakpoint: 401,
+            options: {
+              chart:{
+                height: '600',
+                horizontalAlign: 'center'
+              },
+              legend: {
+                position: 'bottom',
+                floating: false,
+                offsetY: 0,
+                offsetX: 0,
+                fontSize: '8px',
+                show: true
+              },
+              title:{
+                  style:{
+                    fontSize: '10px'
+                  }
+              }
+            }
+          }]
     })
 }
 
@@ -27,6 +74,9 @@ function updateTownChartByFlatTypeV1(data, townName) {
                     return "$ " + val / 1000 + " K"
                 }
             }
+        },
+        chart:{
+            height: 400
         },
         responsive: [{
             breakpoint: 500,
@@ -241,6 +291,7 @@ function setRegionMap(allRegionMap) {
 }
 
 
+
 window.document.addEventListener('DOMContentLoaded', async function () {
     let baseCaseLocation = "ANG MO KIO";
     let baseCaseYear = 2012;
@@ -251,16 +302,16 @@ window.document.addEventListener('DOMContentLoaded', async function () {
     let resaleData1516 = await loadData(CSV_YEAR_15_16);
     let resaleData1214 = await loadData(CSV_YEAR_12_14);
     let newAllRegionMap = setRegionMap(allRegionMap);
-    let pageBtn = document.querySelector('.page0-btn');
-    pageBtn.style.color = "rgb(57, 131, 180)";
-    pageBtn.style.border = "3px solid rgb(105, 139, 153)";
-    pageBtn.addEventListener('click', function(){
-        if(pageBtn.className === "page0-btn"){
-            pageBtn.className += " change";
-        }else{
-            pageBtn.className = "page0-btn"
-        }
-    })
+    
+    //let pageBtn0 = document.querySelector('.page0-btn');
+
+    // pageBtn0.addEventListener('click', function(){
+    //     if(pageBtn0.className === "page0-btn"){
+    //         pageBtn.className += " change";
+    //     }else{
+    //         pageBtn0.className = "page0-btn"
+    //     }
+    // })
     /******************************************
      * form validation 
      ******************************************/
