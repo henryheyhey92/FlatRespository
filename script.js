@@ -142,15 +142,15 @@ function updateProgressChart(data){
 function updateProgressChartV2(data){
     progressChartSec.updateOptions({
         series:[data],
-        labels: ["Resale flat price increase"],
+        labels: ["Increase"],
         dataLabels: {
             name: {
               offsetY: -10,
-              color: "#808080",
+              color: "#A9A9A9",
               fontSize: "9px"
             },
             value: {
-              color: "#fff",
+              color: "#A9A9A9",
               fontSize: "20px",
               show: true
             }
@@ -303,15 +303,7 @@ window.document.addEventListener('DOMContentLoaded', async function () {
     let resaleData1214 = await loadData(CSV_YEAR_12_14);
     let newAllRegionMap = setRegionMap(allRegionMap);
     
-    //let pageBtn0 = document.querySelector('.page0-btn');
-
-    // pageBtn0.addEventListener('click', function(){
-    //     if(pageBtn0.className === "page0-btn"){
-    //         pageBtn.className += " change";
-    //     }else{
-    //         pageBtn0.className = "page0-btn"
-    //     }
-    // })
+    
     /******************************************
      * form validation 
      ******************************************/
@@ -384,8 +376,6 @@ window.document.addEventListener('DOMContentLoaded', async function () {
     //combine dataset and sort data by town
     let resaleDataOA = combineAll(resaleData1214, resaleData1516, data);
     let filteredData = await sortByTown(resaleDataOA);
-    //console.log(filteredData.get("ANG MO KIO")[0]);
-    console.log(filteredData);
     
 
     /*************************************************
@@ -436,11 +426,8 @@ window.document.addEventListener('DOMContentLoaded', async function () {
 
 
     /* chart 3: find the number of flatType in different area by year */
-    //let numberFlatType = findFlatTypeCountByYear();
     let getNumFlatType = regionChart(filteredData, centralRegionOne, 2012);
-    //console.log(ans);
     updateFlatTypeCountV1(getNumFlatType, centralRegionOne, baseCaseYear, baseCaseRegion);
-    //dropDownYearMenu(filteredData, newAllRegionMap);
     findSelectedRadioBtn(filteredData, newAllRegionMap);
 
 
