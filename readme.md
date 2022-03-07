@@ -130,19 +130,19 @@ _Limitation and future implementation_
 
 ### **Technologies and Credits**
 
-* HTML5, CSS3 and Javascript were used
+* HTML5, CSS3, Javascript and bootstrap 5.0 were used
 
-* gov data sg provided the datasets [here](https://data.gov.sg/dataset/resale-flat-prices?view_id=093ff0f0-783f-4f6a-be52-7e506a8c58ca&resource_id=f1765b54-a209-4718-8d38-a39237f502b3)
+* Gov data sg provided the datasets [here](https://data.gov.sg/dataset/resale-flat-prices?view_id=093ff0f0-783f-4f6a-be52-7e506a8c58ca&resource_id=f1765b54-a209-4718-8d38-a39237f502b3)
 
-* linear serach and hashmap is mostly used as the algo for the application
+* Linear serach and hashmap is mostly used as the algo for the application
 
-* axios cdn was used for retrieving data.
+* Axios cdn was used for retrieving data.
 
 * Apexchart API was used to display the graph
 
 * Paul's Github source code were used as references
 
-* Images for the webpage from pexel.com, google images 
+* Images for the webpage from pexel.com, google images and icon from fontawesome
 
 
 ### **Testing**
@@ -158,3 +158,5 @@ Method of deployment uses github pages
 2. click on settings
 3. scroll down and look for "GitHub Pages"
 4. under source, click on the dropdown beside the root dropdown, and select the branch the main branch.
+
+github pages of the web app [here](https://henryheyhey92.github.io/FlatRespository/)
