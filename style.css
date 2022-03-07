@@ -149,16 +149,22 @@
     max-height: 1000px;
 }
 
-.card{
+.dropDownCard{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
     transition: 0.3s;
     padding: 5px 5px 5px 5px;
     border: 5px 5px 5px 5px;
-    height: 5vh;
+    min-height: 5vh;
     margin: 2vh 3vw 2vh 3vw;
+    border-radius: 25px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
 }
 
-.card:hover{
+
+
+.dropDownCard:hover{
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 

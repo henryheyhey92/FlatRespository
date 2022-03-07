@@ -14,12 +14,12 @@ function updateTownChartFuncV1(data) {
     })
 }
 
-function updateTownChartByFlatTypeV1(data) {
+function updateTownChartByFlatTypeV1(data, townName) {
     //console.log(data);
     flatTypeChart.updateSeries(data);
     flatTypeChart.updateOptions({
         title: {
-            text: "Average price base on flat type"
+            text: "Average flat type price :"+ townName
         },
         tooltip: {
             y: {
@@ -27,11 +27,33 @@ function updateTownChartByFlatTypeV1(data) {
                     return "$ " + val / 1000 + " K"
                 }
             }
-        }
+        },
+        responsive: [{
+            breakpoint: 500,
+            options: {
+              chart:{
+                height: '500',
+                horizontalAlign: 'center'
+              },
+              legend: {
+                position: 'bottom',
+                floating: false,
+                offsetY: 0,
+                offsetX: 0,
+                fontSize: '8px',
+                show: true
+              },
+              title:{
+                  style:{
+                    fontSize: '10px'
+                  }
+              }
+            }
+          }]
     })
 }
 
-function updateFlatTypeCountV1(data, region) {
+function updateFlatTypeCountV1(data, region, year, regionName) {
     popularFlatTypeChart.updateSeries(data);
     popularFlatTypeChart.updateOptions({
         xaxis: {
@@ -40,7 +62,7 @@ function updateFlatTypeCountV1(data, region) {
     });
     popularFlatTypeChart.updateOptions({
         title: {
-            text: "Number flat transacted in 2019"
+            text: "Region: "+regionName+", year:"+year
         }
     });
 }
@@ -95,7 +117,7 @@ function dropDownMeun(data) {
         //console.log(selectedTown)
         let chosenTown = selectedTown.options[selectedTown.selectedIndex].value;
         let popularFlatType = findByFlatType(data, chosenTown);
-        updateTownChartByFlatTypeV1(popularFlatType);
+        updateTownChartByFlatTypeV1(popularFlatType, chosenTown);
     })
 
 }
@@ -156,7 +178,7 @@ function findSelectedRadioBtn(data, allRegionMap) {
         sr = allRegionMap.get(chosenTown);
         console.log(sr)
         let getChart = regionChart(data, sr, parseInt(chosenYear));
-        updateFlatTypeCountV1(getChart, sr);
+        updateFlatTypeCountV1(getChart, sr, chosenYear, chosenTown);
     })
 
 
@@ -169,7 +191,7 @@ function findSelectedRadioBtn(data, allRegionMap) {
             let selectedYear = document.querySelector('#year').value;
             console.log("when raido :"+selectedYear);
             let getChart = regionChart(data, sr, parseInt(selectedYear));
-            updateFlatTypeCountV1(getChart, sr);
+            updateFlatTypeCountV1(getChart, sr, selectedYear, name);
         })
 
     })
@@ -221,6 +243,8 @@ function setRegionMap(allRegionMap) {
 
 window.document.addEventListener('DOMContentLoaded', async function () {
     let baseCaseLocation = "ANG MO KIO";
+    let baseCaseYear = 2012;
+    let baseCaseRegion = "centralRegionOne";
     let allRegionMap = new Map();
     //axios get method
     let data = await loadData(CSV_YEAR_17_22);
@@ -354,7 +378,7 @@ window.document.addEventListener('DOMContentLoaded', async function () {
     /* chart 2: find by different flat type avg price*/
     let popularFlatType = findByFlatType(filteredData, baseCaseLocation);
     dropDownMeun(filteredData);
-    updateTownChartByFlatTypeV1(popularFlatType);
+    updateTownChartByFlatTypeV1(popularFlatType, baseCaseLocation);
 
     /********************End of chart 2***************/
 
@@ -362,9 +386,9 @@ window.document.addEventListener('DOMContentLoaded', async function () {
 
     /* chart 3: find the number of flatType in different area by year */
     //let numberFlatType = findFlatTypeCountByYear();
-    let ans = regionChart(filteredData, centralRegionOne, 2012);
+    let getNumFlatType = regionChart(filteredData, centralRegionOne, 2012);
     //console.log(ans);
-    updateFlatTypeCountV1(ans, centralRegionOne);
+    updateFlatTypeCountV1(getNumFlatType, centralRegionOne, baseCaseYear, baseCaseRegion);
     //dropDownYearMenu(filteredData, newAllRegionMap);
     findSelectedRadioBtn(filteredData, newAllRegionMap);
 
