@@ -17,7 +17,7 @@ The web app objective is to provide pricing information and the number of transa
 
 **User Goals**
 
-The aim of users is to obtain pricing inforamtion of resale flat from past year and use it as future reference/guide to purchase HDB flats in singapore. 
+The aim of users is to obtain pricing inforamtion of resale flat from past year and use it as future reference/guide to purchase HDB flats/ resale HDB flats in singapore. 
 
 **Justification for the App**
 
