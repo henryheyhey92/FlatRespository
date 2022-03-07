@@ -1,6 +1,6 @@
 # Resale go where
 <div class="image" style="display: inline-block;">
-    <img src='images/desktopview.jpg'>
+    <img src='images/desktopview.jpg' style="width: 200px; height: 200px">
     <!-- <img src='images/mobile_view.jpg'> -->
 </div>
 
@@ -23,17 +23,16 @@ The aim of users is to obtain pricing inforamtion of resale flat from past year 
 
 The gov data sg provides dataset on pricing for different location. However, no data visualisation on the resale flat price were provided and hard for user to see consolidate the information for reference (the raw data has 10 thousand over records). Hence, having a chart that display average price trend would give user a easlier time to review the past year resale flat pricing.     
 
-**URL for project**
+
+## UX/UI
+
+### **Strategy**
 
 _Orgranisation_
 * objective: Provide a data visualiation on the past year average resale flat pricing 
 
 _User_
-* Objective: To get the insight on the past year resale flat price and trend, so that user can know which location has the highest resale value.
-
-## UX/UI
-
-### **Strategy**
+* Objective: To get the insight on the past year resale flat price and trend, so that user can know which location has the highest resale value and also serve a reference for people who wants to purchase resale flat.
 
 User stories | Acceptance Criteria
 -------------|--------------------
@@ -64,7 +63,7 @@ _Non-functional:_
 
 2. When the user first load in the application, they will see the about main page. There is a guide for user to click on each chart to view different set of charts 
 
-3. The nav-bar contents link to the homepage and developer github page 
+3. The nav-bar contains link to the homepage and developer github page 
 
 4. when user click the chart button in the about main page, a swap in animation would occur and change to the respective chart that the user have selected.
 
@@ -99,36 +98,51 @@ _color_
 
 _Font choice_
 
-3. For font use for logo and the content uses Helvetica. The decision behind using Helvetica is because this font is consider one of the most easy to read.
+3. For font, Helvetica is used for logo and the content. The decision behind using Helvetica is because this font is consider one of the most easy to read.
 
 
 _Icon_
 
-4. The only icon used in the page is menu icon for the nav bar. The intented web design is to have least amount of icons, and the reason behind is to keep the web page clean and simple.  
+4. The only icon used in the page is menu icon for the nav bar. The intented web design is to have least amount of icons, and the reason behind is to keep the web page minimalistic, clean and simple.  
 
 ### ***Features**
 
-_Chart_
+1. _Chart_
 
 ApexCharts is used to display datasets that were sorted by the appliction from data.gov
 
-_Radio buttons and dropdown_
+2. _Sort chart by year, region/town location_
 
-The application is able to sort and display chart results base on town location and year
+The application is able to sort and display chart results base on town location and year, so that user can see the price trend of the past transacted resale flats in line and donut chart.
+
+3. _Synchronize chart_
+
+From the chart, user will be able to review and compare pricing between different town and different year through the synchronization chart feature.
+
+_Limitation and future implementation_
+
+* In the future, add map feature can be added to the application so that user can get a better idea on the location of the past transacted resale flat information.
+
+* The current resale flat dataset is not in real time and the number of query data have to be hardcoded.
+
+* Currently the application would take about 5 seconds time to preprocess the data and render the charts. Hence, would need a better algo design for further implementation.
+
 
 ### **Technologies and Credits
 
-HTML5, CSS3 and Javascript were used
+* HTML5, CSS3 and Javascript were used
 
-gov data sg provided the datasets
+* gov data sg provided the datasets [here](https://data.gov.sg/dataset/resale-flat-prices?view_id=093ff0f0-783f-4f6a-be52-7e506a8c58ca&resource_id=f1765b54-a209-4718-8d38-a39237f502b3)
 
-axios cdn was used for retrieving data.
+* linear serach and hashmap is mostly used as the algo for the application
 
-Apexchart API was used to display the graph
+* axios cdn was used for retrieving data.
 
-Paul's Github source code were used as references
+* Apexchart API was used to display the graph
 
-Images for the webpage from pexel.com, google images 
+* Paul's Github source code were used as references
+
+* Images for the webpage from pexel.com, google images 
 
 
 ### **Testing**
@@ -139,3 +153,8 @@ test case [here](https://github.com/henryheyhey92/FlatRespository/blob/main/pdf/
 
 ### ***Deployment**
 
+Method of deployment uses github pages
+1. go to the project repository
+2. click on settings
+3. scroll down and look for "GitHub Pages"
+4. under source, click on the dropdown beside the root dropdown, and select the branch the main branch.
