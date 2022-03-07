@@ -105,7 +105,7 @@ _Icon_
 
 4. The only icon used in the page is menu icon for the nav bar. The intented web design is to have least amount of icons, and the reason behind is to keep the web page minimalistic, clean and simple.  
 
-### ***Features**
+### ***Features***
 
 1. _Chart_
 
@@ -128,7 +128,7 @@ _Limitation and future implementation_
 * Currently the application would take about 5 seconds time to preprocess the data and render the charts. Hence, would need a better algo design for further implementation.
 
 
-### **Technologies and Credits
+### **Technologies and Credits**
 
 * HTML5, CSS3 and Javascript were used
 
@@ -151,7 +151,7 @@ please click on the test link to access the pdf for
 test case [here](https://github.com/henryheyhey92/FlatRespository/blob/main/pdf/resale_go_where.pdf)
 
 
-### ***Deployment**
+### **Deployment**
 
 Method of deployment uses github pages
 1. go to the project repository
