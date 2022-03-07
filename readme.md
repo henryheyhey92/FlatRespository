@@ -1,7 +1,7 @@
 # Resale go where
-<div class="image" style="display: inline-block;">
-    <img src='images/desktopview.jpg' style="width: 200px; height: 200px">
-    <!-- <img src='images/mobile_view.jpg'> -->
+<div class="image" style="display: flex; flex-wrap: wrap;">
+    <img src='images/desktopview.jpg' style="width: 300px; height: 200px">
+    <img src='images/mobile_view.jpg' style="width: 200px; height: 200px">
 </div>
 
 
