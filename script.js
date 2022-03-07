@@ -117,12 +117,12 @@ function updateFlatTypeCountV1(data, region, year, regionName) {
     });
 }
 
-function updatePieChartV1(pieChart, location){
+function updatePieChartV1(pieChart, location, year){
     popularFlatTypePieChart.updateOptions({
         series: pieChart[0],
         labels: pieChart[1],
         title:{
-            text: location,
+            text: location+", year: "+year,
             margin: 0,
             offsetX: 0,
             offsetY: 0,
@@ -185,14 +185,14 @@ function dropDownMeunForPieChart(filteredData){
         let chosenTown = selectedTown.options[selectedTown.selectedIndex].value;
         let chosenYear = document.querySelector('#pie-year').value;
         let pieChart = getPiechart(filteredData, chosenTown, chosenYear);
-        updatePieChartV1(pieChart, chosenTown);
+        updatePieChartV1(pieChart, chosenTown, chosenYear);
     })
 
     selectedYear.addEventListener('change', function(){
         let chosenYear = selectedYear.options[selectedYear.selectedIndex].value;
         let chosenTown = document.querySelector('#pie-town').value;
         let pieChart = getPiechart(filteredData, chosenTown, chosenYear);
-        updatePieChartV1(pieChart, chosenTown);
+        updatePieChartV1(pieChart, chosenTown, chosenYear);
     })
 }
 
@@ -435,8 +435,8 @@ window.document.addEventListener('DOMContentLoaded', async function () {
     /********************End of chart 3 ****************/
 
     /***********chart 4: pie chart *********************/
-    let pieChart = getPiechart(filteredData, baseCaseLocation, 2021);
-    updatePieChartV1(pieChart, baseCaseLocation);
+    let pieChart = getPiechart(filteredData, baseCaseLocation, 2012);
+    updatePieChartV1(pieChart, baseCaseLocation, 2012);
     dropDownMeunForPieChart(filteredData);
 
 });
