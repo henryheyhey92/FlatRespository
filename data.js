@@ -118,7 +118,6 @@ function sortByTown(data) {
 
 
 function findByFlatType(townData, townName) {
-    // let townName = "ANG MO KIO";
     let singleTownData = townData.get(townName);
     let len = townData.get(townName).length;
     let flatTypeAvgObj = [];
@@ -167,11 +166,6 @@ function findByFlatType(townData, townName) {
 
 }
 
-function findFlatTypeCountByYear(townData)
-{
-    let flatTypeLen = flatType.length;
-
-}
 
 function groupDataByYear(townData)
 {   
@@ -185,7 +179,6 @@ function groupDataByYear(townData)
            monthVal = [];
            for(let i = 0; i< getTownInfo.length; i++){
                 let currYear = getTownInfo[i].month.slice(0,4);
-                //console.log(currYear+", "+y)
                 if(parseInt(currYear) !== parseInt(y)){
                     continue;
                 }else{
@@ -196,7 +189,6 @@ function groupDataByYear(townData)
                "town-name":town,
                "value":monthVal
            });
-           //console.log(townObj);
        }
        yearMap.set(y, townObj);
    }
@@ -264,9 +256,6 @@ function getPiechart(filteredData, townName, year){
         seriesArray.push(count);
         labelsArray.push(ft);
     }
-    // let options = {
-    //     series: seriesArray,
-    //     labels: labelsArray
-    // }
+   
     return [seriesArray, labelsArray];
 }
