@@ -64,53 +64,74 @@
   </div>
 
 
-  <div id="all-tab">
+  <div id="all-tab container">
     <!-- about -->
     <div class="tab" id="chart-0">
-      <div class="aboutChartCard" id="about-card">
-        <div class="about">
 
-          <img src="images/about-hdb.jpg" alt="HDB" class="about-img" id="about-img"/>
-          <p class="summary"><strong>Singapore:</strong> The Government is watching the progress of Build-to-Order (BTO) projects very
+      <div class="card m-3" style="width: auto;">
+        <img class="card-img-top" src="images/about-hdb.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Singapore</h5>
+          <p class="card-text">The Government is watching the progress of Build-to-Order (BTO)
+            projects very
             closely, and has leaned forward to ensure that projects are completed
             as planned or with as little delay as possible.
             In 2021, about 14,500 HDB flats were delivered.
             This number is more than a 50 per cent increase over in 2020 and 12.7% increase in price in 2021</p>
-          <!-- RadialBar and Circular -->
-          <div class="progressBar">
-            <div id="progressBarOne"></div>
-            <div id="progressBarSec"></div>
-          </div>
+          <!-- <a href="#" class="btn btn-primary">More information</a> -->
         </div>
-
-        <div class="sec-about">
-          <h1>User Guide:</h1>
-          <p class="guide">Provide user <strong>information</strong> on the average resale flat price, price of
-            different type of flats and the most popular flat type</p>
-          <br>
-          <p><strong>Click</strong> the above button to checkout charts</p>
-          <p><strong>Chart 1:</strong>The average price of HDB in different town region from year 2012 to 2022</p>
-          <p><strong>Chart 2:</strong> The average price of different flat type in specific town location</p>
-          <p><strong>Chart 3:</strong> The number of transacted flat type sorted by year and region</p>
-          <p><strong>Chart 4:</strong> The percentage of transacted flat type sorted by year and town location</p>
-        </div>
-
-        <!-- validation form -->
-          <div class="validation-form">
-            <div class="alert alert-danger" style="display: none;" id="errors"></div>
-          <div>Input following details to subscribe to our <strong>news letter</strong></div>
-          <div>
-            <label>Full Name</label>
-            <input type="text" class="form-control" id="name">
-          </div>
-          <div>
-            <label>Email</label>
-            <input type="text" class="form-control" id="email">
-          </div>
-          <button class="btn btn-primary mt-3" id="form-btn">Submit</button>
-          </div>
       </div>
-      
+
+      <div class="row justify-content-center">
+
+        <!-- for the first chart -->
+        <div class="card border-primary mb-3 col-lg-3 col-md-4 col-12 h-75" style="max-width: 18rem;">
+          <div class="card-header">Chart 1</div>
+          <div class="card-body text-primary">
+            <p class="card-text">The average price of HDB in different town region from year 2012 to 2022.</p>
+          </div>
+        </div>
+
+        <!-- for the second chart -->
+        <div class="card border-secondary mb-3 col-lg-3 col-md-5 col-sm-12 h-75" style="max-width: 18rem;">
+          <div class="card-header">Chart 2</div>
+          <div class="card-body text-secondary">
+            <p class="card-text">The average price of different flat type in specific town location</p>
+          </div>
+        </div>
+
+        <!-- for the third chart  -->
+        <div class="card border-success mb-3 col-lg-3 col-md-5 col-sm-12 h-75" style="max-width: 18rem;">
+          <div class="card-header">Chart 3</div>
+          <div class="card-body text-success">
+            <p class="card-text">The number of transacted flat type sorted by year and region.</p>
+          </div>
+        </div>
+        <!-- for the forth chart -->
+        <div class="card border-success mb-3 col-lg-3 col-md-5 col-sm-12 h-75" style="max-width: 18rem;">
+          <div class="card-header">Chart 4</div>
+          <div class="card-body text-success">
+            <p class="card-text">The percentage of transacted flat type sorted by year and town location.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- validation form -->
+      <div class="validation-form">
+        <div class="alert alert-danger" style="display: none;" id="errors"></div>
+        <div>Input following details to subscribe to our <strong>news letter</strong></div>
+        <div>
+          <label>Full Name</label>
+          <input type="text" class="form-control" id="name">
+        </div>
+        <div>
+          <label>Email</label>
+          <input type="text" class="form-control" id="email">
+        </div>
+        <button class="btn btn-primary mt-3" id="form-btn">Submit</button>
+      </div>
+
     </div>
     <!-- chart 1: town average graph  -->
     <div class="tab hidden" id="chart-1">
@@ -222,7 +243,7 @@
 
   </div>
 
-  
+
 
   <script>
     function menuFunc() {

@@ -57,27 +57,6 @@
 
 
 
-@media screen and (min-width: 521px) {
-    .nav-link-sec.responsive{
-        display: none;
-    }
-}
-
-@media screen and (max-width: 520px), screen and (min-height:800px){
-    .nav-link.responsive{
-        display: none;
-    }
-    .menu-icon{
-        position: absolute;
-        margin-right: 2vw;
-        right: 10px;
-        top: 10px;
-    }
-    .nav-link-sec.responsive{
-        display: block;
-    }
-}
-
 /**********************************************/
 
 #tab-bar{
@@ -119,6 +98,7 @@
     z-index: 1;
 }
 
+/* can take this out */
 .aboutChartCard{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
     transition: 0.3s;
@@ -317,121 +297,7 @@ body{
     flex-wrap: wrap;
 }
 
-/* @media screen and (max-width: 500px) {
-    .chart3-card{
-        height: 100px;
-    }
-} */
 
-@media screen and (max-width:480px), screen and (max-height:555px){
-    .description-box-1 h1{
-        font-size: 20px;
-    }
-
-    .description-box-1 h3 p{
-        font-size: 12px;
-    }
-}
-
-@media screen and (max-width: 340px) {
-    .about-img{
-        max-width: 230px;
-        height: 200px;
-    }
-
-    .sec-about{
-        font-size: 13px;
-    }
-}
-
-
-@media screen and (max-width: 520px){
-    .nav-link {
-        display: none;
-    }
-    .menu-icon{
-        display: block;
-        
-    }
-}
-
-@media screen and (max-width: 520px), screen and (max-height: 555px){
-    .nav-link.responsive{
-        display: none;
-    }
-    .menu-icon{
-        position: absolute;
-        margin-right: 2vw;
-        right: 10px;
-        top: 5px;
-    }
-    .nav-link-sec.responsive{
-        display: block;
-    }
-}
-
-@media screen and (max-width: 450px){
-    .aboutChartCard{
-        height: 660px!important;
-    }
-    p.summary{
-        height: 200px!important;
-    }
-}
-
-
-@media screen and (max-width:780px) {
-    .aboutChartCard{
-        display: block;
-        text-align: center;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
-        transition: 0.3s;
-        padding: 5px 5px 5px 5px;
-        border-radius: 15px;
-        margin: 2vh 5vw 5vh 5vw;
-        background: white;
-        z-index: 1;
-        height: 500px;
-
-    }
-    p.summary{
-        text-align: center;
-        margin: auto;
-        font-family: Arial, Helvetica, sans-serif;
-        height: 200px;
-    }
-
-    .sec-about>P, .sec-about>h1{
-        margin: 2vh auto;
-        max-width: 50vw;
-    }
-    .progressBar{
-        display: flex;
-        justify-content: center;
-    }
-    .about{
-        max-height: 500px;
-    }
-
-}
-
-@media screen and (max-width:440) {
-    .progressBar{
-        display: inline-block;
-    }
-}
-
-@media screen and (max-width:440), screen and (max-height: 500) {
-    .chart4-card{
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
-        background: white;
-        transition: 0.3s;
-        padding: 5px 5px 5px 5px;
-        border: 10px 10px 10px 10px;
-        height: 30vh;
-        margin: 2vh 3vw 2vh 3vw;
-    }
-}
 
 .validation-form{
     margin-top: 1vh;
@@ -444,11 +310,5 @@ body{
     border-radius: 15px;
     background: linear-gradient(to right, #def3ef, #ebedfa);
     
-}
-
-@media screen and (max-width: 551px){
-    .sec-about p.guide{
-        display: none;
-    }
 }
 
