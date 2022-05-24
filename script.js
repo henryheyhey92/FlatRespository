@@ -14,50 +14,50 @@ function updateTownChartFuncV1(data) {
         chart:{
             height: 450
         },
-        responsive: [{
-            breakpoint: 500,
-            options: {
-              chart:{
-                height: '500',
-                horizontalAlign: 'center'
-              },
-              legend: {
-                position: 'bottom',
-                floating: false,
-                offsetY: 0,
-                offsetX: 0,
-                fontSize: '10px',
-                show: true
-              },
-              title:{
-                  style:{
-                    fontSize: '10px'
-                  }
-              }
-            }
-          },
-          {
-            breakpoint: 401,
-            options: {
-              chart:{
-                height: '600',
-                horizontalAlign: 'center'
-              },
-              legend: {
-                position: 'bottom',
-                floating: false,
-                offsetY: 0,
-                offsetX: 0,
-                fontSize: '8px',
-                show: true
-              },
-              title:{
-                  style:{
-                    fontSize: '10px'
-                  }
-              }
-            }
-          }]
+        // responsive: [{
+        //     breakpoint: 500,
+        //     options: {
+        //       chart:{
+        //         height: '500',
+        //         horizontalAlign: 'center'
+        //       },
+        //       legend: {
+        //         position: 'bottom',
+        //         floating: false,
+        //         offsetY: 0,
+        //         offsetX: 0,
+        //         fontSize: '10px',
+        //         show: true
+        //       },
+        //       title:{
+        //           style:{
+        //             fontSize: '10px'
+        //           }
+        //       }
+        //     }
+        //   },
+        //   {
+        //     breakpoint: 401,
+        //     options: {
+        //       chart:{
+        //         height: '600',
+        //         horizontalAlign: 'center'
+        //       },
+        //       legend: {
+        //         position: 'bottom',
+        //         floating: false,
+        //         offsetY: 0,
+        //         offsetX: 0,
+        //         fontSize: '8px',
+        //         show: true
+        //       },
+        //       title:{
+        //           style:{
+        //             fontSize: '10px'
+        //           }
+        //       }
+        //     }
+        //   }]
     })
 }
 
